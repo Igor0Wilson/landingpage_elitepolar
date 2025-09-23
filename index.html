@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elite Polar - Global Cold Money</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="bg-white text-black font-sans">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white text-black shadow z-50">
+      <div class="container mx-auto flex justify-between items-center p-4">
+        <!-- Logo + Nome -->
+        <div class="flex items-center space-x-4">
+          <img
+            src="assets/logoelitepolar1.png"
+            alt="Elite Polar"
+            class="h-14 w-14 rounded-2xl object-cover shadow-lg"
+          />
+          <span class="font-serif text-3xl font-bold italic tracking-wide">
+            Elite Polar
+          </span>
+        </div>
+
+        <!-- Menu Desktop -->
+        <nav class="hidden md:flex space-x-8 text-black">
+          <a
+            href="#sobre"
+            class="hover:text-gray-600 flex items-center space-x-1"
+          >
+            <i data-lucide="info"></i><span>Sobre</span>
+          </a>
+
+          <a
+            href="#servicos"
+            class="hover:text-gray-600 flex items-center space-x-1"
+          >
+            <i data-lucide="briefcase"></i><span>Serviços</span>
+          </a>
+          <a
+            href="#clientes"
+            class="hover:text-gray-600 flex items-center space-x-1"
+          >
+            <i data-lucide="users"></i><span>Clientes</span>
+          </a>
+          <a
+            href="#contato"
+            class="hover:text-gray-600 flex items-center space-x-1"
+          >
+            <i data-lucide="mail"></i><span>Contato</span>
+          </a>
+        </nav>
+
+        <!-- Botão Mobile -->
+        <button class="md:hidden text-2xl text-black" id="menu-btn">☰</button>
+      </div>
+
+      <!-- Menu Mobile -->
+      <div
+        id="mobile-menu"
+        class="hidden flex-col bg-white text-black md:hidden shadow"
+      >
+        <a
+          href="#sobre"
+          class="p-4 border-b border-gray-300 flex items-center space-x-2"
+        >
+          <i class="fas fa-info-circle text-black"></i><span>Sobre</span>
+        </a>
+        <a
+          href="#valores"
+          class="p-4 border-b border-gray-300 flex items-center space-x-2"
+        >
+          <i class="fas fa-star text-black"></i><span>Valores</span>
+        </a>
+        <a
+          href="#servicos"
+          class="p-4 border-b border-gray-300 flex items-center space-x-2"
+        >
+          <i class="fas fa-briefcase text-black"></i><span>Serviços</span>
+        </a>
+        <a
+          href="#clientes"
+          class="p-4 border-b border-gray-300 flex items-center space-x-2"
+        >
+          <i class="fas fa-users text-black"></i><span>Clientes</span>
+        </a>
+        <a href="#contato" class="p-4 flex items-center space-x-2">
+          <i class="fas fa-envelope text-black"></i><span>Contato</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section
+      class="h-screen flex items-center justify-center relative overflow-hidden bg-white"
+    >
+      <!-- Fundo -->
+      <img
+        src="assets/fundolp.png"
+        alt="Fundo Elite Polar"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+
+      <!-- Overlay escuro com degradê -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-black/70"
+      ></div>
+
+      <!-- Container principal -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+        <!-- Logo maior -->
+        <img
+          src="assets/eliteicon2.png"
+          alt="Elite Polar"
+          class="h-56 mx-auto mb-10 drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] animate-bounce"
+        />
+
+        <!-- Headline -->
+        <h1
+          class="text-5xl md:text-7xl font-extrabold tracking-wide text-white mb-6 drop-shadow-lg"
+        >
+          O Futuro do <span class="text-gray-300">Digital</span> é Agora
+        </h1>
+        <p
+          class="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed"
+        >
+          Transformamos atenção em
+          <span class="text-gray-300">lucro</span> com estratégias de
+          performance, automação inteligente e execução global.
+        </p>
+
+        <!-- Cards flutuantes estilo glass -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div
+            class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
+          >
+            <h3 class="text-2xl font-bold text-white mb-4">Performance</h3>
+            <p class="text-gray-300">
+              Estratégias agressivas que transformam cada clique em resultado
+              real.
+            </p>
+          </div>
+          <div
+            class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
+          >
+            <h3 class="text-2xl font-bold text-white mb-4">Tecnologia</h3>
+            <p class="text-gray-300">
+              Automação inteligente e dados precisos para decisões certeiras.
+            </p>
+          </div>
+          <div
+            class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
+          >
+            <h3 class="text-2xl font-bold text-white mb-4">Execução Global</h3>
+            <p class="text-gray-300">
+              Presença em múltiplos mercados com impacto e sofisticação.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA futurista -->
+        <a
+          href="#sobre"
+          class="px-10 py-4 bg-gray-300 text-black rounded-lg font-semibold text-lg shadow-lg hover:shadow-2xl transition transform hover:scale-110"
+        >
+          Saiba Mais
+        </a>
+      </div>
+    </section>
+
+    <!-- Quem Somos + Valores -->
+    <section
+      id="sobre"
+      class="relative py-28 bg-gray-100 text-black overflow-hidden"
+    >
+      <div
+        class="container mx-auto px-6 lg:px-20 grid lg:grid-cols-2 gap-20 items-center"
+      >
+        <!-- Imagem -->
+        <div class="relative">
+          <img
+            src="assets/eliteicon3.jpg"
+            alt="Equipe Elite Polar"
+            class="rounded-2xl shadow-2xl transform hover:scale-105 transition duration-500"
+          />
+          <!-- Overlay decorativo -->
+          <div
+            class="absolute -top-6 -left-6 w-32 h-32 bg-gradient-to-br from-white to-gray-200 rounded-lg opacity-80 rotate-12"
+          ></div>
+          <div
+            class="absolute -bottom-8 -right-8 w-40 h-40 border-4 border-white rounded-full opacity-70"
+          ></div>
+        </div>
+
+        <!-- Conteúdo Quem Somos -->
+        <div class="text-left">
+          <h2 class="text-7xl font-extrabold mb-10 leading-tight text-gray-900">
+            Quem <span class="text-white bg-black px-3 rounded">Somos</span>
+          </h2>
+          <p class="text-2xl text-gray-700 mb-8 leading-relaxed">
+            <strong class="text-black">Missão:</strong> Construir negócios
+            digitais de alta performance, transformando atenção em lucro real
+            com estratégias de marketing agressivas, automação inteligente e
+            tecnologia de conversão. Acreditamos que cada oportunidade deve ser
+            explorada ao máximo, elevando empresas a patamares de excelência
+            global.
+          </p>
+          <p class="text-2xl text-gray-700 mb-8 leading-relaxed">
+            <strong class="text-black">Visão:</strong> Ser a referência mundial
+            em otimização de processos, redefinindo o jogo das vendas digitais e
+            estando sempre à frente do mercado. Nossa visão é criar ecossistemas
+            digitais sustentáveis, capazes de crescer exponencialmente e se
+            adaptar às constantes mudanças do cenário econômico global.
+          </p>
+          <p class="text-2xl text-gray-700 leading-relaxed">
+            A <strong class="text-black">Elite Polar</strong> não é apenas uma
+            empresa, é um movimento estratégico que conecta inteligência de
+            dados, inovação tecnológica e execução impecável para transformar
+            negócios em verdadeiras potências digitais.
+          </p>
+        </div>
+      </div>
+
+      <!-- Nossos Valores -->
+      <div class="mt-28 max-w-6xl mx-auto px-6">
+        <!-- Título com dinheiro grande em destaque -->
+        <div class="flex flex-col items-center justify-center mb-20 relative">
+          <img
+            src="assets/dinheiro2.png"
+            alt="Dinheiro"
+            class="w-52 h-52 object-contain mb-6 drop-shadow-2xl"
+          />
+          <h2
+            class="text-6xl font-extrabold text-center text-gray-900 tracking-wide uppercase"
+          >
+            Nossos
+            <span class="text-white bg-black px-4 py-1 rounded-lg"
+              >Valores</span
+            >
+          </h2>
+        </div>
+
+        <!-- Cards de valores -->
+        <div class="mt-28 max-w-6xl mx-auto px-6">
+
+         
+        
+          <!-- Cards de valores -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Card 1 -->
+            <div
+              class="relative bg-white p-10 rounded-3xl shadow-xl border border-gray-200 hover:scale-105 hover:shadow-2xl hover:border-black transition transform duration-300"
+            >
+              <div
+                class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-full mb-6 shadow-lg"
+              >
+                <i data-lucide="target" class="w-10 h-10"></i>
+              </div>
+              <h3 class="font-bold text-3xl mb-4 text-black">
+                1. O cliente é missão
+              </h3>
+              <p class="text-lg text-gray-600">
+                O sucesso dele é a nossa guerra. Cada venda é uma vitória.
+              </p>
+            </div>
+        
+            <!-- Card 2 -->
+            <div
+              class="relative bg-white p-10 rounded-3xl shadow-xl border border-gray-200 hover:scale-105 hover:shadow-2xl hover:border-black transition transform duration-300"
+            >
+              <div
+                class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-full mb-6 shadow-lg"
+              >
+                <i data-lucide="zap" class="w-10 h-10"></i>
+              </div>
+              <h3 class="font-bold text-3xl mb-4 text-black">
+                2. Velocidade é poder
+              </h3>
+              <p class="text-lg text-gray-600">
+                Pensamos, executamos e escalamos rápido. Não desaceleramos.
+              </p>
+            </div>
+        
+            <!-- Card 3 -->
+            <div
+              class="relative bg-white p-10 rounded-3xl shadow-xl border border-gray-200 hover:scale-105 hover:shadow-2xl hover:border-black transition transform duration-300"
+            >
+              <div
+                class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-full mb-6 shadow-lg"
+              >
+                <i data-lucide="trending-up" class="w-10 h-10"></i>
+              </div>
+              <h3 class="font-bold text-3xl mb-4 text-black">
+                3. Performance acima da opinião
+              </h3>
+              <p class="text-lg text-gray-600">
+                Resultados importam mais do que opiniões.
+              </p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-24 bg-white">
+      <div class="container mx-auto text-center px-6">
+        <h2 class="text-5xl font-extrabold mb-12 text-gray-900">
+          Nossos
+          <span class="text-black bg-gray-100 px-2 rounded">Serviços</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <!-- Card 1 -->
+          <div
+            class="bg-white border border-gray-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform"
+          >
+            <div
+              class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-black text-white shadow-lg"
+            >
+              <i data-lucide="trending-up" class="w-10 h-10"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Estratégias de Performance
+            </h3>
+            <p class="text-gray-600">
+              Escalamos negócios digitais com foco em resultados reais,
+              transformando cada clique em lucro.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white border border-gray-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform"
+          >
+            <div
+              class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-black text-white shadow-lg"
+            >
+              <i data-lucide="cpu" class="w-10 h-10"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Tecnologia de Conversão
+            </h3>
+            <p class="text-gray-600">
+              Automação inteligente e análise de dados que maximizam cada venda
+              com precisão executiva.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white border border-gray-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform"
+          >
+            <div
+              class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-black text-white shadow-lg"
+            >
+              <i data-lucide="globe-2" class="w-10 h-10"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+              Execução Global
+            </h3>
+            <p class="text-gray-600">
+              Presença em múltiplos mercados com soluções de alto impacto para
+              empresas de elite.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clientes" class="py-24 bg-gray-100 relative overflow-hidden">
+      <div class="container mx-auto px-6 lg:px-20">
+        <!-- Título -->
+        <h2 class="text-6xl font-extrabold text-center mb-16 text-gray-900">
+          Nossos <span class="text-white bg-black px-3 rounded">Clientes</span>
+        </h2>
+
+        <!-- Avaliações lado a lado -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- Card 1 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition transform"
+          >
+            <div class="flex flex-col items-center text-center">
+              <img
+                src="https://i.pravatar.cc/100?img=12"
+                alt="Cliente 1"
+                class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
+              />
+              <div class="flex text-yellow-400 mb-4">★★★★★</div>
+              <p class="italic text-lg text-gray-700 leading-relaxed mb-4">
+                “A Elite Polar levou meu negócio a outro patamar. Estratégias
+                inteligentes e execução impecável. Hoje vendo em mercados que
+                antes pareciam impossíveis.”
+              </p>
+              <h4 class="text-2xl font-semibold text-gray-900">
+                Renato Carvalho
+              </h4>
+              <span class="text-gray-500">Cliente Elite Polar desde 2023</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition transform"
+          >
+            <div class="flex flex-col items-center text-center">
+              <img
+                src="https://i.pravatar.cc/100?img=32"
+                alt="Cliente 2"
+                class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
+              />
+              <div class="flex text-yellow-400 mb-4">★★★★★</div>
+              <p class="italic text-lg text-gray-700 leading-relaxed mb-4">
+                “Profissionais incríveis, visão de mercado e velocidade absurda.
+                Consegui multiplicar minhas vendas em menos de 3 meses.”
+              </p>
+              <h4 class="text-2xl font-semibold text-gray-900">Mariana S.</h4>
+              <span class="text-gray-500">São Paulo - Brasil</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition transform"
+          >
+            <div class="flex flex-col items-center text-center">
+              <img
+                src="https://i.pravatar.cc/100?img=56"
+                alt="Cliente 3"
+                class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
+              />
+              <div class="flex text-yellow-400 mb-4">★★★★★</div>
+              <p class="italic text-lg text-gray-700 leading-relaxed mb-4">
+                “Eles não só entregam resultados, como também criam estratégias
+                que geram impacto duradouro. A Elite Polar é diferente de tudo
+                que já vi no mercado.”
+              </p>
+              <h4 class="text-2xl font-semibold text-gray-900">Lucas C.</h4>
+              <span class="text-gray-500">E-commerce • Tecnologia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-28 bg-white text-center relative overflow-hidden">
+      <div class="max-w-5xl mx-auto px-6 relative z-10">
+        <!-- Título -->
+        <h2 class="text-5xl font-extrabold mb-8 tracking-wide uppercase text-gray-900">
+          Entre em <span class="text-green-500">Contato</span>
+        </h2>
+        <p class="text-xl text-gray-600 mb-12">
+          Conecte-se com nossa equipe de forma <span class="font-semibold">rápida</span>,
+          <span class="font-semibold">exclusiva</span> e <span class="font-semibold">profissional</span>.
+        </p>
+    
+        <!-- Botão WhatsApp -->
+        <a
+          href="https://wa.me/5500000000000" 
+          target="_blank"
+          class="inline-flex items-center gap-4 bg-green-500 text-white font-bold text-2xl px-12 py-6 rounded-full shadow-2xl hover:scale-110 hover:shadow-green-400/70 transition transform duration-300"
+        >
+          <i data-lucide="message-circle" class="w-10 h-10"></i>
+          Falar no WhatsApp
+        </a>
+    
+        <!-- Ícones futuristas extras -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16">
+          <div class="flex flex-col items-center">
+            <div class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-2xl shadow-lg mb-4">
+              <i data-lucide="clock" class="w-10 h-10"></i>
+            </div>
+            <p class="text-lg text-gray-700">Atendimento Rápido</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-2xl shadow-lg mb-4">
+              <i data-lucide="shield" class="w-10 h-10"></i>
+            </div>
+            <p class="text-lg text-gray-700">Segurança e Confiança</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-2xl shadow-lg mb-4">
+              <i data-lucide="star" class="w-10 h-10"></i>
+            </div>
+            <p class="text-lg text-gray-700">Atendimento Premium</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Fundo futurista -->
+      <div class="absolute inset-0 bg-gradient-to-b from-white via-white to-gray-100 opacity-70"></div>
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-green-200 rounded-full blur-3xl opacity-50"></div>
+      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-black rounded-full blur-3xl opacity-20"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
+        <!-- Texto principal -->
+        <p class="text-sm md:text-base tracking-wide opacity-90">
+          &copy; 2025 <span class="font-bold text-white">Elite Polar</span> — Global Cold Money. <br class="md:hidden"/> Todos os direitos reservados.
+        </p>
+    
+        <!-- Desenvolvido por -->
+        <div class="flex items-center gap-3">
+          <span class="text-sm opacity-80">Desenvolvido por</span>
+          <img
+            src="./assets/logo-org.png"
+            alt="WSS Solution Logo"
+            class="h-9 w-9 rounded-full object-cover bg-white p-1 shadow-md"
+          />
+        </div>
+      </div>
+    
+      <!-- Fundo futurista -->
+      <div class="absolute inset-0">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-72 h-72 bg-green-500/10 rounded-full blur-3xl"></div>
+      </div>
+    </footer>
+    
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
