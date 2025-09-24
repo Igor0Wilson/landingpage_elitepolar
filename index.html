@@ -7,11 +7,51 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      /* Compensar header fixo */
+      body {
+        padding-top: 80px; /* altura aproximada do header */
+      }
+
+      /* Hero ajustes */
+      .hero-section {
+        min-height: calc(100vh - 80px); /* ocupar tela sem sobrepor header */
+      }
+
+      /* Animação lenta customizada */
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 12s linear infinite;
+      }
+
+      /* Flutuar ícones */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+    </style>
   </head>
   <body class="bg-white text-black font-sans">
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full bg-white text-black shadow z-50">
-      <div class="container mx-auto flex justify-between items-center p-4">
+    <header
+      class="fixed top-0 left-0 w-full bg-white text-black shadow z-50 h-20 flex items-center"
+    >
+      <div class="container mx-auto flex justify-between items-center px-4">
         <!-- Logo + Nome -->
         <div class="flex items-center space-x-4">
           <img
@@ -19,7 +59,9 @@
             alt="Elite Polar"
             class="h-14 w-14 rounded-2xl object-cover shadow-lg"
           />
-          <span class="font-serif text-3xl font-bold italic tracking-wide">
+          <span
+            class="font-serif text-2xl md:text-3xl font-bold italic tracking-wide"
+          >
             Elite Polar
           </span>
         </div>
@@ -30,140 +72,312 @@
             href="#sobre"
             class="hover:text-gray-600 flex items-center space-x-1"
           >
-            <i data-lucide="info"></i><span>Sobre</span>
+            <i data-lucide="info"></i>
+            <span data-i18n="menu_sobre">Sobre</span>
           </a>
-
           <a
             href="#servicos"
             class="hover:text-gray-600 flex items-center space-x-1"
           >
-            <i data-lucide="briefcase"></i><span>Serviços</span>
+            <i data-lucide="briefcase"></i>
+            <span data-i18n="menu_servicos">Serviços</span>
           </a>
           <a
             href="#clientes"
             class="hover:text-gray-600 flex items-center space-x-1"
           >
-            <i data-lucide="users"></i><span>Clientes</span>
+            <i data-lucide="users"></i>
+            <span data-i18n="menu_clientes">Clientes</span>
           </a>
           <a
             href="#contato"
             class="hover:text-gray-600 flex items-center space-x-1"
           >
-            <i data-lucide="mail"></i><span>Contato</span>
+            <i data-lucide="mail"></i>
+            <span data-i18n="menu_contato">Contato</span>
           </a>
         </nav>
 
+        <!-- Botões Idioma (desktop + mobile) -->
+        <div class="flex items-center gap-2 mr-2">
+          <button data-lang="pt" class="w-6 h-6" title="Português">
+            <img
+              src="https://flagcdn.com/w40/br.png"
+              alt="Português"
+              class="rounded shadow w-full h-full object-cover"
+            />
+          </button>
+          <button data-lang="es" class="w-6 h-6" title="Español">
+            <img
+              src="https://flagcdn.com/w40/es.png"
+              alt="Español"
+              class="rounded shadow w-full h-full object-cover"
+            />
+          </button>
+          <button data-lang="en" class="w-6 h-6" title="English">
+            <img
+              src="https://flagcdn.com/w40/us.png"
+              alt="English"
+              class="rounded shadow w-full h-full object-cover"
+            />
+          </button>
+        </div>
+
         <!-- Botão Mobile -->
-        <button class="md:hidden text-2xl text-black" id="menu-btn">☰</button>
+        <button class="md:hidden text-2xl text-black ml-4" id="menu-btn">
+          ☰
+        </button>
       </div>
 
       <!-- Menu Mobile -->
       <div
         id="mobile-menu"
-        class="hidden flex-col bg-white text-black md:hidden shadow"
+        class="hidden flex-col bg-white text-black md:hidden shadow w-full"
       >
         <a
           href="#sobre"
           class="p-4 border-b border-gray-300 flex items-center space-x-2"
         >
-          <i class="fas fa-info-circle text-black"></i><span>Sobre</span>
+          <i data-lucide="info"></i>
+          <span data-i18n="menu_sobre">Sobre</span>
         </a>
         <a
           href="#valores"
           class="p-4 border-b border-gray-300 flex items-center space-x-2"
         >
-          <i class="fas fa-star text-black"></i><span>Valores</span>
+          <i data-lucide="star"></i>
+          <span data-i18n="menu_valores">Valores</span>
         </a>
         <a
           href="#servicos"
           class="p-4 border-b border-gray-300 flex items-center space-x-2"
         >
-          <i class="fas fa-briefcase text-black"></i><span>Serviços</span>
+          <i data-lucide="briefcase"></i>
+          <span data-i18n="menu_servicos">Serviços</span>
         </a>
         <a
           href="#clientes"
           class="p-4 border-b border-gray-300 flex items-center space-x-2"
         >
-          <i class="fas fa-users text-black"></i><span>Clientes</span>
+          <i data-lucide="users"></i>
+          <span data-i18n="menu_clientes">Clientes</span>
         </a>
         <a href="#contato" class="p-4 flex items-center space-x-2">
-          <i class="fas fa-envelope text-black"></i><span>Contato</span>
+          <i data-lucide="mail"></i>
+          <span data-i18n="menu_contato">Contato</span>
         </a>
       </div>
     </header>
 
     <!-- Hero -->
     <section
-      class="h-screen flex items-center justify-center relative overflow-hidden bg-white"
+      class="hero-section flex items-center justify-center relative overflow-hidden bg-white"
     >
       <!-- Fundo -->
       <img
-        src="assets/fundolp.png"
+        src="assets/fundolp.jpg"
         alt="Fundo Elite Polar"
         class="absolute inset-0 w-full h-full object-cover"
       />
-
-      <!-- Overlay escuro com degradê -->
       <div
         class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-black/70"
       ></div>
 
-      <!-- Container principal -->
-      <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <!-- Logo maior -->
+      <!-- Ícones decorativos -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute top-10 left-6 w-10 h-10 text-green-400 opacity-70 animate-bounce"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="1.5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 8c-1.657 0-3 .843-3 1.875S10.343 11.75 12 11.75s3 .843 3 1.875S13.657 15.5 12 15.5m0-7.5V5.25m0 10v3M21 12c0 4.971-4.029 9-9 9s-9-4.029-9-9 4.029-9 9-9 9 4.029 9 9z"
+        />
+      </svg>
+
+      <!-- Conteúdo -->
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
         <img
           src="assets/eliteicon2.png"
           alt="Elite Polar"
-          class="h-56 mx-auto mb-10 drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] animate-bounce"
+          class="h-40 sm:h-48 md:h-56 mx-auto mb-8 drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] animate-bounce"
         />
 
-        <!-- Headline -->
         <h1
-          class="text-5xl md:text-7xl font-extrabold tracking-wide text-white mb-6 drop-shadow-lg"
+          class="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-wide text-white mb-6 drop-shadow-lg leading-tight"
+          data-i18n="hero_title"
         >
-          O Futuro do <span class="text-gray-300">Digital</span> é Agora
+          O Futuro do
+          <span
+            class="text-gray-300 inline-flex items-center gap-3 flex-wrap justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 md:h-10 md:w-10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 1v2M12 21v2M17 5.5A4 4 0 0 0 12 3a4 4 0 0 0-5 2.5C7 7 9 8 12 9c3 .9 5 1.9 5 5s-2 4-5 5c-3 1-5 2-5 3.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 7v2c0 2 4 2 4 2s4 0 4 2v2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Digital
+          </span>
+          é Agora
         </h1>
+
         <p
-          class="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed"
+          class="text-base sm:text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed"
+          data-i18n="hero_subtitle"
         >
-          Transformamos atenção em
-          <span class="text-gray-300">lucro</span> com estratégias de
-          performance, automação inteligente e execução global.
+          Transformamos atenção em <span class="text-gray-300">lucro</span> com
+          estratégias de performance, automação inteligente e execução global.
         </p>
 
-        <!-- Cards flutuantes estilo glass -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Cards Hero -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10">
+          <!-- Card 1 -->
           <div
             class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
           >
-            <h3 class="text-2xl font-bold text-white mb-4">Performance</h3>
-            <p class="text-gray-300">
+            <div
+              class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 md:h-10 md:w-10 text-green-400"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <path
+                  d="M4 9h16M4 15h8"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="0.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3
+                class="text-xl md:text-2xl font-bold text-white"
+                data-i18n="hero_card1_title"
+              >
+                Performance
+              </h3>
+            </div>
+            <p class="text-sm md:text-base text-gray-300">
               Estratégias agressivas que transformam cada clique em resultado
               real.
             </p>
           </div>
+
+          <!-- Card 2 -->
           <div
             class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
           >
-            <h3 class="text-2xl font-bold text-white mb-4">Tecnologia</h3>
-            <p class="text-gray-300">
+            <div
+              class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 md:h-10 md:w-10 text-yellow-400"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <ellipse cx="12" cy="6" rx="8" ry="3" />
+                <path
+                  d="M4 6v6c0 1.657 3.582 3 8 3s8-1.343 8-3V6"
+                  fill="currentColor"
+                />
+                <path
+                  d="M4 12v6c0 1.657 3.582 3 8 3s8-1.343 8-3v-6"
+                  fill="currentColor"
+                  opacity="0.95"
+                />
+              </svg>
+              <h3
+                class="text-xl md:text-2xl font-bold text-white"
+                data-i18n="hero_card2_title"
+              >
+                Tecnologia
+              </h3>
+            </div>
+            <p class="text-sm md:text-base text-gray-300">
               Automação inteligente e dados precisos para decisões certeiras.
             </p>
           </div>
+
+          <!-- Card 3 -->
           <div
             class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
           >
-            <h3 class="text-2xl font-bold text-white mb-4">Execução Global</h3>
-            <p class="text-gray-300">
+            <div
+              class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 md:h-10 md:w-10 text-indigo-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true"
+              >
+                <rect
+                  x="2"
+                  y="6"
+                  width="20"
+                  height="12"
+                  rx="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2 10h20"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3
+                class="text-xl md:text-2xl font-bold text-white"
+                data-i18n="hero_card3_title"
+              >
+                Execução Global
+              </h3>
+            </div>
+            <p class="text-sm md:text-base text-gray-300">
               Presença em múltiplos mercados com impacto e sofisticação.
             </p>
           </div>
         </div>
 
-        <!-- CTA futurista -->
         <a
           href="#sobre"
-          class="px-10 py-4 bg-gray-300 text-black rounded-lg font-semibold text-lg shadow-lg hover:shadow-2xl transition transform hover:scale-110"
+          class="px-8 py-3 md:px-10 md:py-4 bg-gray-300 text-black rounded-lg font-semibold text-lg shadow-lg hover:shadow-2xl transition transform hover:scale-110"
+          data-i18n="hero_cta"
         >
           Saiba Mais
         </a>
@@ -196,10 +410,16 @@
 
         <!-- Conteúdo Quem Somos -->
         <div class="text-left">
-          <h2 class="text-7xl font-extrabold mb-10 leading-tight text-gray-900">
+          <h2
+            class="text-7xl font-extrabold mb-10 leading-tight text-gray-900"
+            data-i18n="sobre_titulo"
+          >
             Quem <span class="text-white bg-black px-3 rounded">Somos</span>
           </h2>
-          <p class="text-2xl text-gray-700 mb-8 leading-relaxed">
+          <p
+            class="text-2xl text-gray-700 mb-8 leading-relaxed"
+            data-i18n="sobre_missao"
+          >
             <strong class="text-black">Missão:</strong> Construir negócios
             digitais de alta performance, transformando atenção em lucro real
             com estratégias de marketing agressivas, automação inteligente e
@@ -207,14 +427,20 @@
             explorada ao máximo, elevando empresas a patamares de excelência
             global.
           </p>
-          <p class="text-2xl text-gray-700 mb-8 leading-relaxed">
+          <p
+            class="text-2xl text-gray-700 mb-8 leading-relaxed"
+            data-i18n="sobre_visao"
+          >
             <strong class="text-black">Visão:</strong> Ser a referência mundial
             em otimização de processos, redefinindo o jogo das vendas digitais e
             estando sempre à frente do mercado. Nossa visão é criar ecossistemas
             digitais sustentáveis, capazes de crescer exponencialmente e se
             adaptar às constantes mudanças do cenário econômico global.
           </p>
-          <p class="text-2xl text-gray-700 leading-relaxed">
+          <p
+            class="text-2xl text-gray-700 leading-relaxed"
+            data-i18n="sobre_texto_final"
+          >
             A <strong class="text-black">Elite Polar</strong> não é apenas uma
             empresa, é um movimento estratégico que conecta inteligência de
             dados, inovação tecnológica e execução impecável para transformar
@@ -234,6 +460,7 @@
           />
           <h2
             class="text-6xl font-extrabold text-center text-gray-900 tracking-wide uppercase"
+            data-i18n="valores_titulo"
           >
             Nossos
             <span class="text-white bg-black px-4 py-1 rounded-lg"
@@ -244,10 +471,6 @@
 
         <!-- Cards de valores -->
         <div class="mt-28 max-w-6xl mx-auto px-6">
-
-         
-        
-          <!-- Cards de valores -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             <!-- Card 1 -->
             <div
@@ -258,14 +481,17 @@
               >
                 <i data-lucide="target" class="w-10 h-10"></i>
               </div>
-              <h3 class="font-bold text-3xl mb-4 text-black">
+              <h3
+                class="font-bold text-3xl mb-4 text-black"
+                data-i18n="valores_card1_titulo"
+              >
                 1. O cliente é missão
               </h3>
-              <p class="text-lg text-gray-600">
+              <p class="text-lg text-gray-600" data-i18n="valores_card1_texto">
                 O sucesso dele é a nossa guerra. Cada venda é uma vitória.
               </p>
             </div>
-        
+
             <!-- Card 2 -->
             <div
               class="relative bg-white p-10 rounded-3xl shadow-xl border border-gray-200 hover:scale-105 hover:shadow-2xl hover:border-black transition transform duration-300"
@@ -275,14 +501,17 @@
               >
                 <i data-lucide="zap" class="w-10 h-10"></i>
               </div>
-              <h3 class="font-bold text-3xl mb-4 text-black">
+              <h3
+                class="font-bold text-3xl mb-4 text-black"
+                data-i18n="valores_card2_titulo"
+              >
                 2. Velocidade é poder
               </h3>
-              <p class="text-lg text-gray-600">
+              <p class="text-lg text-gray-600" data-i18n="valores_card2_texto">
                 Pensamos, executamos e escalamos rápido. Não desaceleramos.
               </p>
             </div>
-        
+
             <!-- Card 3 -->
             <div
               class="relative bg-white p-10 rounded-3xl shadow-xl border border-gray-200 hover:scale-105 hover:shadow-2xl hover:border-black transition transform duration-300"
@@ -292,23 +521,27 @@
               >
                 <i data-lucide="trending-up" class="w-10 h-10"></i>
               </div>
-              <h3 class="font-bold text-3xl mb-4 text-black">
+              <h3
+                class="font-bold text-3xl mb-4 text-black"
+                data-i18n="valores_card3_titulo"
+              >
                 3. Performance acima da opinião
               </h3>
-              <p class="text-lg text-gray-600">
+              <p class="text-lg text-gray-600" data-i18n="valores_card3_texto">
                 Resultados importam mais do que opiniões.
               </p>
             </div>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- Serviços -->
+    <!-- SERVIÇOS -->
     <section id="servicos" class="py-24 bg-white">
       <div class="container mx-auto text-center px-6">
         <h2 class="text-5xl font-extrabold mb-12 text-gray-900">
-          Nossos
-          <span class="text-black bg-gray-100 px-2 rounded">Serviços</span>
+          <span data-i18n="menu_servicos">Nossos Serviços</span>
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
           <!-- Card 1 -->
@@ -320,10 +553,13 @@
             >
               <i data-lucide="trending-up" class="w-10 h-10"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            <h3
+              class="text-2xl font-bold text-gray-900 mb-4"
+              data-i18n="servicos_card1_titulo"
+            >
               Estratégias de Performance
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-600" data-i18n="servicos_card1_texto">
               Escalamos negócios digitais com foco em resultados reais,
               transformando cada clique em lucro.
             </p>
@@ -338,10 +574,13 @@
             >
               <i data-lucide="cpu" class="w-10 h-10"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            <h3
+              class="text-2xl font-bold text-gray-900 mb-4"
+              data-i18n="servicos_card2_titulo"
+            >
               Tecnologia de Conversão
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-600" data-i18n="servicos_card2_texto">
               Automação inteligente e análise de dados que maximizam cada venda
               com precisão executiva.
             </p>
@@ -356,10 +595,13 @@
             >
               <i data-lucide="globe-2" class="w-10 h-10"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            <h3
+              class="text-2xl font-bold text-gray-900 mb-4"
+              data-i18n="servicos_card3_titulo"
+            >
               Execução Global
             </h3>
-            <p class="text-gray-600">
+            <p class="text-gray-600" data-i18n="servicos_card3_texto">
               Presença em múltiplos mercados com soluções de alto impacto para
               empresas de elite.
             </p>
@@ -368,14 +610,15 @@
       </div>
     </section>
 
+    <!-- CLIENTES -->
     <section id="clientes" class="py-24 bg-gray-100 relative overflow-hidden">
       <div class="container mx-auto px-6 lg:px-20">
         <!-- Título -->
         <h2 class="text-6xl font-extrabold text-center mb-16 text-gray-900">
-          Nossos <span class="text-white bg-black px-3 rounded">Clientes</span>
+          <span data-i18n="menu_clientes">Nossos Clientes</span>
         </h2>
 
-        <!-- Avaliações lado a lado -->
+        <!-- Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <!-- Card 1 -->
           <div
@@ -388,15 +631,21 @@
                 class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
               />
               <div class="flex text-yellow-400 mb-4">★★★★★</div>
-              <p class="italic text-lg text-gray-700 leading-relaxed mb-4">
-                “A Elite Polar levou meu negócio a outro patamar. Estratégias
-                inteligentes e execução impecável. Hoje vendo em mercados que
-                antes pareciam impossíveis.”
+              <p
+                class="italic text-lg text-gray-700 leading-relaxed mb-4"
+                data-i18n="clientes_card1_texto"
+              >
+                “A Elite Polar levou meu negócio a outro patamar...”
               </p>
-              <h4 class="text-2xl font-semibold text-gray-900">
+              <h4
+                class="text-2xl font-semibold text-gray-900"
+                data-i18n="clientes_card1_nome"
+              >
                 Renato Carvalho
               </h4>
-              <span class="text-gray-500">Cliente Elite Polar desde 2023</span>
+              <span class="text-gray-500" data-i18n="clientes_card1_sub">
+                Cliente Elite Polar desde 2023
+              </span>
             </div>
           </div>
 
@@ -411,12 +660,22 @@
                 class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
               />
               <div class="flex text-yellow-400 mb-4">★★★★★</div>
-              <p class="italic text-lg text-gray-700 leading-relaxed mb-4">
-                “Profissionais incríveis, visão de mercado e velocidade absurda.
-                Consegui multiplicar minhas vendas em menos de 3 meses.”
+              <p
+                class="italic text-lg text-gray-700 leading-relaxed mb-4"
+                data-i18n="clientes_card2_texto"
+              >
+                “Profissionais incríveis, visão de mercado e velocidade
+                absurda...”
               </p>
-              <h4 class="text-2xl font-semibold text-gray-900">Mariana S.</h4>
-              <span class="text-gray-500">São Paulo - Brasil</span>
+              <h4
+                class="text-2xl font-semibold text-gray-900"
+                data-i18n="clientes_card2_nome"
+              >
+                Mariana S.
+              </h4>
+              <span class="text-gray-500" data-i18n="clientes_card2_sub">
+                São Paulo - Brasil
+              </span>
             </div>
           </div>
 
@@ -431,81 +690,78 @@
                 class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
               />
               <div class="flex text-yellow-400 mb-4">★★★★★</div>
-              <p class="italic text-lg text-gray-700 leading-relaxed mb-4">
-                “Eles não só entregam resultados, como também criam estratégias
-                que geram impacto duradouro. A Elite Polar é diferente de tudo
-                que já vi no mercado.”
+              <p
+                class="italic text-lg text-gray-700 leading-relaxed mb-4"
+                data-i18n="clientes_card3_texto"
+              >
+                “Eles não só entregam resultados, como também criam
+                estratégias...”
               </p>
-              <h4 class="text-2xl font-semibold text-gray-900">Lucas C.</h4>
-              <span class="text-gray-500">E-commerce • Tecnologia</span>
+              <h4
+                class="text-2xl font-semibold text-gray-900"
+                data-i18n="clientes_card3_nome"
+              >
+                Lucas C.
+              </h4>
+              <span class="text-gray-500" data-i18n="clientes_card3_sub">
+                E-commerce • Tecnologia
+              </span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contato -->
-    <section id="contato" class="py-28 bg-white text-center relative overflow-hidden">
+    <!-- CONTATO -->
+    <section
+      id="contato"
+      class="py-28 bg-white text-center relative overflow-hidden"
+    >
       <div class="max-w-5xl mx-auto px-6 relative z-10">
         <!-- Título -->
-        <h2 class="text-5xl font-extrabold mb-8 tracking-wide uppercase text-gray-900">
-          Entre em <span class="text-green-500">Contato</span>
+        <h2
+          class="text-5xl font-extrabold mb-8 tracking-wide uppercase text-gray-900"
+          data-i18n="menu_contato"
+        >
+          Entre em Contato
         </h2>
-        <p class="text-xl text-gray-600 mb-12">
-          Conecte-se com nossa equipe de forma <span class="font-semibold">rápida</span>,
-          <span class="font-semibold">exclusiva</span> e <span class="font-semibold">profissional</span>.
+        <p class="text-xl text-gray-600 mb-12" data-i18n="contato_texto">
+          Conecte-se com nossa equipe de forma rápida, exclusiva e profissional.
         </p>
-    
+
         <!-- Botão WhatsApp -->
         <a
-          href="https://wa.me/5500000000000" 
+          href="https://wa.me/5500000000000"
           target="_blank"
           class="inline-flex items-center gap-4 bg-green-500 text-white font-bold text-2xl px-12 py-6 rounded-full shadow-2xl hover:scale-110 hover:shadow-green-400/70 transition transform duration-300"
+          data-i18n="contato_botao"
         >
           <i data-lucide="message-circle" class="w-10 h-10"></i>
           Falar no WhatsApp
         </a>
-    
-        <!-- Ícones futuristas extras -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16">
-          <div class="flex flex-col items-center">
-            <div class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-2xl shadow-lg mb-4">
-              <i data-lucide="clock" class="w-10 h-10"></i>
-            </div>
-            <p class="text-lg text-gray-700">Atendimento Rápido</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-2xl shadow-lg mb-4">
-              <i data-lucide="shield" class="w-10 h-10"></i>
-            </div>
-            <p class="text-lg text-gray-700">Segurança e Confiança</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-2xl shadow-lg mb-4">
-              <i data-lucide="star" class="w-10 h-10"></i>
-            </div>
-            <p class="text-lg text-gray-700">Atendimento Premium</p>
-          </div>
-        </div>
       </div>
-    
-      <!-- Fundo futurista -->
-      <div class="absolute inset-0 bg-gradient-to-b from-white via-white to-gray-100 opacity-70"></div>
-      <div class="absolute -top-20 -right-20 w-80 h-80 bg-green-200 rounded-full blur-3xl opacity-50"></div>
-      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-black rounded-full blur-3xl opacity-20"></div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-black text-white relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10">
+      <div
+        class="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10"
+      >
         <!-- Texto principal -->
-        <p class="text-sm md:text-base tracking-wide opacity-90">
-          &copy; 2025 <span class="font-bold text-white">Elite Polar</span> — Global Cold Money. <br class="md:hidden"/> Todos os direitos reservados.
+        <p
+          class="text-sm md:text-base tracking-wide opacity-90"
+          data-i18n="footer_text"
+        >
+          &copy; 2025 <span class="font-bold text-white">Elite Polar</span> —
+          Global Cold Money. <br class="md:hidden" />
+          Todos os direitos reservados.
         </p>
-    
+
         <!-- Desenvolvido por -->
         <div class="flex items-center gap-3">
-          <span class="text-sm opacity-80">Desenvolvido por</span>
+          <span class="text-sm opacity-80" data-i18n="footer_dev">
+            Desenvolvido por
+          </span>
           <img
             src="./assets/logo-org.png"
             alt="WSS Solution Logo"
@@ -513,19 +769,22 @@
           />
         </div>
       </div>
-    
+
       <!-- Fundo futurista -->
       <div class="absolute inset-0">
-        <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-72 h-72 bg-green-500/10 rounded-full blur-3xl"></div>
+        <div
+          class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-72 h-72 bg-green-500/10 rounded-full blur-3xl"
+        ></div>
       </div>
     </footer>
-    
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
     </script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
