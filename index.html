@@ -53,18 +53,12 @@
     >
       <div class="container mx-auto flex justify-between items-center px-4">
         <!-- Logo + Nome -->
-        <div class="flex items-center space-x-4">
-          <img
-            src="assets/logoelitepolar1.png"
-            alt="Elite Polar"
-            class="h-14 w-14 rounded-2xl object-cover shadow-lg"
-          />
-          <span
-            class="font-serif text-2xl md:text-3xl font-bold italic tracking-wide"
-          >
-            Elite Polar
-          </span>
-        </div>
+
+        <img
+          src="assets/eliteicon2.png"
+          alt="Elite Polar"
+          class="h-28 w-50 rounded-2xl"
+        />
 
         <!-- Menu Desktop -->
         <nav class="hidden md:flex space-x-8 text-black">
@@ -204,7 +198,7 @@
         class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
       >
         <img
-          src="assets/eliteicon2.png"
+          src="assets/logoelitepolar1.png"
           alt="Elite Polar"
           class="h-40 sm:h-48 md:h-56 mx-auto mb-8 drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] animate-bounce"
         />
@@ -454,9 +448,9 @@
         <!-- Título com dinheiro grande em destaque -->
         <div class="flex flex-col items-center justify-center mb-20 relative">
           <img
-            src="assets/dinheiro2.png"
+            src="assets/moedas.jpg"
             alt="Dinheiro"
-            class="w-52 h-52 object-contain mb-6 drop-shadow-2xl"
+            class="w-52 h-52 rounded-full object-contain mb-6 drop-shadow-2xl"
           />
           <h2
             class="text-6xl font-extrabold text-center text-gray-900 tracking-wide uppercase"
@@ -536,13 +530,46 @@
       </div>
     </section>
 
-    <!-- Serviços -->
+    <section id="faturamento" class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <!-- Ícone de Dinheiro -->
+        <div class="flex justify-center mb-8">
+          <div
+            class="w-24 h-24 flex items-center justify-center bg-black text-white rounded-full shadow-xl"
+          >
+            <i data-lucide="dollar-sign" class="w-10 h-10"></i>
+          </div>
+        </div>
+
+        <!-- Texto Principal -->
+        <h2
+          class="text-5xl font-extrabold text-gray-900 mb-4"
+          data-i18n="faturamento_titulo"
+        ></h2>
+
+        <p class="text-2xl text-gray-600 mb-12">
+          <span data-i18n="faturamento_texto_pre">Geramos </span>
+          <span id="contador" class="font-bold text-black">0</span>
+          <span data-i18n="faturamento_texto_pos">
+            no último trimestre para nossos parceiros</span
+          >
+        </p>
+
+        <!-- Gráfico -->
+        <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-200">
+          <canvas id="faturamentoChart" class="w-full h-96"></canvas>
+        </div>
+      </div>
+    </section>
+
     <!-- SERVIÇOS -->
     <section id="servicos" class="py-24 bg-white">
       <div class="container mx-auto text-center px-6">
         <h2 class="text-5xl font-extrabold mb-12 text-gray-900">
           <span data-i18n="menu_servicos">Nossos Serviços</span>
         </h2>
+
+        <!-- Grid de cards existentes -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
           <!-- Card 1 -->
           <div
@@ -606,6 +633,28 @@
               empresas de elite.
             </p>
           </div>
+        </div>
+
+        <!-- Card de destaque responsivo -->
+        <div
+          class="bg-white border border-gray-200 p-10 sm:p-14 md:p-16 rounded-3xl shadow-2xl hover:shadow-4xl hover:-translate-y-4 transition transform mt-32 max-w-6xl mx-auto text-center"
+        >
+          <div
+            class="flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-6 sm:mb-8 md:mb-10 rounded-full bg-black text-white shadow-2xl"
+          >
+            <i
+              data-lucide="megaphone"
+              class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"
+            ></i>
+          </div>
+          <h3
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 md:mb-8 px-4 sm:px-6"
+            data-i18n="servicos_card4_titulo"
+          ></h3>
+          <p
+            class="text-lg sm:text-xl md:text-2xl max-w-full md:max-w-4xl mx-auto leading-relaxed px-4 sm:px-6"
+            data-i18n="servicos_card4_texto"
+          ></p>
         </div>
       </div>
     </section>
@@ -780,10 +829,69 @@
         ></div>
       </div>
     </footer>
-
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
+    </script>
+    <script>
+      // Contador animado
+      const contadorEl = document.getElementById("contador");
+      let count = 0;
+      const target = 2000000000; // 2 bilhões
+      const duration = 2000; // 2 segundos
+      const step = target / (duration / 16); // 60fps
+
+      const animate = () => {
+        count += step;
+        if (count >= target) count = target;
+        contadorEl.innerText = "$" + Math.floor(count).toLocaleString();
+        if (count < target) requestAnimationFrame(animate);
+      };
+      animate();
+
+      // Gráfico
+      const ctx = document.getElementById("faturamentoChart").getContext("2d");
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Mês 1", "Mês 2", "Mês 3"],
+          datasets: [
+            {
+              label: "Faturamento (USD milhões)",
+              data: [500, 700, 2000],
+              backgroundColor: "rgba(0,0,0,0.05)",
+              borderColor: "rgba(0,0,0,0.8)",
+              borderWidth: 3,
+              tension: 0.4,
+              fill: true,
+              pointBackgroundColor: "rgba(0,0,0,0.8)",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                callback: function (value) {
+                  return "$" + value + "M";
+                },
+                color: "#000",
+              },
+            },
+            x: {
+              ticks: { color: "#000" },
+            },
+          },
+        },
+      });
     </script>
     <script src="js/script.js"></script>
   </body>

@@ -59,6 +59,12 @@ const translations = {
     footer_text:
       "© 2025 Elite Polar — Global Cold Money. Todos os direitos reservados.",
     footer_dev: "Desenvolvido por",
+    servicos_card4_titulo: "Marketing de Alta Agressividade",
+    servicos_card4_texto:
+      "Estratégias intensas e direcionadas para dominar o mercado, capturando atenção, gerando leads qualificados e convertendo oportunidades em resultados tangíveis de forma rápida e impactante.",
+    faturamento_titulo: "Faturamento",
+    faturamento_texto_pre: "Geramos ",
+    faturamento_texto_pos: " no último trimestre para nossos parceiros",
   },
 
   en: {
@@ -117,6 +123,12 @@ const translations = {
     clientes_card3_sub: "E-commerce • Technology",
     footer_text: "© 2025 Elite Polar — Global Cold Money. All rights reserved.",
     footer_dev: "Developed by",
+    servicos_card4_titulo: "High-Intensity Marketing",
+    servicos_card4_texto:
+      "Intense and targeted strategies to dominate the market, capturing attention, generating qualified leads, and converting opportunities into tangible results quickly and impactfully.",
+    faturamento_titulo: "Revenue",
+    faturamento_texto_pre: "We generated ",
+    faturamento_texto_pos: " in the last quarter for our partners",
   },
 
   es: {
@@ -176,6 +188,12 @@ const translations = {
     footer_text:
       "© 2025 Elite Polar — Global Cold Money. Todos los derechos reservados.",
     footer_dev: "Desarrollado por",
+    servicos_card4_titulo: "Marketing de Alta Agresividad",
+    servicos_card4_texto:
+      "Estrategias intensas y dirigidas para dominar el mercado, captando atención, generando leads calificados y convirtiendo oportunidades en resultados tangibles de manera rápida e impactante.",
+    faturamento_titulo: "Facturación",
+    faturamento_texto_pre: "Generamos ",
+    faturamento_texto_pos: " en el último trimestre para nuestros socios",
   },
 };
 
