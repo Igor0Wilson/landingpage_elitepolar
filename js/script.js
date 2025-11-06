@@ -65,6 +65,44 @@ const translations = {
     faturamento_titulo: "Faturamento",
     faturamento_texto_pre: "Geramos ",
     faturamento_texto_pos: " no último trimestre para nossos parceiros",
+    menu_servicos: "Nossos Serviços",
+    servicos_card1_titulo: "Estratégias de Performance",
+    servicos_card1_texto:
+      "Escalamos negócios digitais com foco em resultados reais. Cada clique é tratado como uma oportunidade de crescimento, transformando investimentos em lucro sustentável. Nosso time aplica inteligência de mercado para garantir consistência e evolução em todas as etapas do funil.",
+    servicos_card2_titulo: "Tecnologia de Conversão",
+    servicos_card2_texto:
+      "Da automação inteligente à análise precisa de dados, oferecemos tecnologia que aumenta sua taxa de conversão em cada detalhe da jornada do cliente. Combinamos inovação, eficiência e confiabilidade para transformar processos em experiências fluidas e vendas em escala.",
+    servicos_card3_titulo: "Execução Global",
+    servicos_card3_texto:
+      "Atuamos em múltiplos mercados, adaptando estratégias a cada cultura e realidade local. Nosso foco é proporcionar impacto global sem perder a personalização regional, conectando sua marca com clientes em qualquer parte do mundo.",
+    servicos_card4_titulo: "Comunicação que Conecta",
+    servicos_card4_texto:
+      "Transformamos ideias em campanhas inesquecíveis. Com criatividade estratégica e tecnologia de ponta, entregamos narrativas que inspiram, engajam e convertem. Do branding ao marketing de performance, damos voz à sua marca para impactar pessoas e gerar resultados duradouros.",
+    faturamento_titulo: "FATURAMENTO GERAL (PERÍODO DE 27 DIAS)",
+    faturamento_texto:
+      "Faturamento médio do nosso ecossistema atual em saldo BRL",
+    faturamento_legenda:
+      "(totalizado por 5 influenciadores que somados têm 3kk seguidores)",
+    faturamento_kpi_volume: "Volume",
+    faturamento_kpi_sales: "Vendas",
+    faturamento_kpi_ticket: "Ticket Médio",
+    faturamento_report_titulo: "RELATÓRIO DE ANÁLISES (FATURAMENTO TRIMESTRAL)",
+    menu_contato: "Contato",
+    contato_texto:
+      "Conecte-se com nossa equipe de forma rápida, exclusiva e profissional.",
+    contato_botao: "Falar no WhatsApp",
+    hero_title: "O Futuro do Digital é Agora",
+    faturamento_label: "Faturamento (USD milhões)",
+    general_sales_label: "Vendas Gerais",
+    quarter_labels: [
+      "1º Trimestre",
+      "2º Trimestre",
+      "3º Trimestre",
+      "4º Trimestre",
+      "Extra",
+    ],
+    month_labels: ["Mês 1", "Mês 2", "Mês 3"],
+    day_prefix: "Dia",
   },
 
   en: {
@@ -129,6 +167,37 @@ const translations = {
     faturamento_titulo: "Revenue",
     faturamento_texto_pre: "We generated ",
     faturamento_texto_pos: " in the last quarter for our partners",
+    menu_servicos: "Our Services",
+    servicos_card1_titulo: "Performance Strategies",
+    servicos_card1_texto:
+      "We scale digital businesses with a focus on real results. Each click is treated as a growth opportunity, turning investments into sustainable profit. Our team applies market intelligence to ensure consistency and evolution at every stage of the funnel.",
+    servicos_card2_titulo: "Conversion Technology",
+    servicos_card2_texto:
+      "From smart automation to precise data analysis, we provide technology that boosts your conversion rate at every step of the customer journey. We combine innovation, efficiency, and reliability to transform processes into seamless experiences and large-scale sales.",
+    servicos_card3_titulo: "Global Execution",
+    servicos_card3_texto:
+      "We operate in multiple markets, adapting strategies to each culture and local reality. Our focus is to deliver global impact without losing regional personalization, connecting your brand with customers anywhere in the world.",
+    servicos_card4_titulo: "Communication that Connects",
+    servicos_card4_texto:
+      "We turn ideas into unforgettable campaigns. With strategic creativity and cutting-edge technology, we deliver stories that inspire, engage, and convert. From branding to performance marketing, we give your brand a voice to impact people and generate lasting results.",
+    faturamento_titulo: "GENERAL SALES (27 DAYS PERIOD)",
+    faturamento_texto: "Average revenue of our current ecosystem in balance",
+    faturamento_legenda:
+      "(totalized by 5 influencers with a combined 3M followers)",
+    faturamento_kpi_volume: "Volume",
+    faturamento_kpi_sales: "Sales",
+    faturamento_kpi_ticket: "Average Ticket",
+    faturamento_report_titulo: "ANALYSIS REPORT (QUARTERLY REVENUE)",
+    menu_contato: "Contact",
+    contato_texto:
+      "Connect with our team quickly, exclusively, and professionally.",
+    contato_botao: "Chat on WhatsApp",
+    hero_title: "The Future of Digital is Now",
+    faturamento_label: "Revenue (USD millions)",
+    general_sales_label: "General Sales",
+    quarter_labels: ["Q1", "Q2", "Q3", "Q4", "Extra"],
+    month_labels: ["Month 1", "Month 2", "Month 3"],
+    day_prefix: "Day",
   },
 
   es: {
@@ -194,8 +263,42 @@ const translations = {
     faturamento_titulo: "Facturación",
     faturamento_texto_pre: "Generamos ",
     faturamento_texto_pos: " en el último trimestre para nuestros socios",
+    menu_servicos: "Nuestros Servicios",
+    servicos_card1_titulo: "Estrategias de Rendimiento",
+    servicos_card1_texto:
+      "Escalamos negocios digitales con enfoque en resultados reales. Cada clic se trata como una oportunidad de crecimiento, transformando inversiones en ganancias sostenibles. Nuestro equipo aplica inteligencia de mercado para garantizar consistencia y evolución en todas las etapas del embudo.",
+    servicos_card2_titulo: "Tecnología de Conversión",
+    servicos_card2_texto:
+      "Desde la automatización inteligente hasta el análisis preciso de datos, ofrecemos tecnología que aumenta su tasa de conversión en cada detalle del recorrido del cliente. Combinamos innovación, eficiencia y confiabilidad para transformar procesos en experiencias fluidas y ventas a gran escala.",
+    servicos_card3_titulo: "Ejecución Global",
+    servicos_card3_texto:
+      "Actuamos en múltiples mercados, adaptando estrategias a cada cultura y realidad local. Nuestro objetivo es proporcionar impacto global sin perder la personalización regional, conectando su marca con clientes en cualquier parte del mundo.",
+    servicos_card4_titulo: "Comunicación que Conecta",
+    servicos_card4_texto:
+      "Transformamos ideas en campañas inolvidables. Con creatividad estratégica y tecnología de vanguardia, entregamos narrativas que inspiran, atraen y convierten. Desde el branding hasta el marketing de rendimiento, damos voz a su marca para impactar a las personas y generar resultados duraderos.",
+    faturamento_titulo: "VENTAS GENERALES (PERÍODO DE 27 DÍAS)",
+    faturamento_texto:
+      "Facturación media de nuestro ecosistema actual en saldo",
+    faturamento_legenda:
+      "(totalizado por 5 influencers que suman 3M de seguidores)",
+    faturamento_kpi_volume: "Volumen",
+    faturamento_kpi_sales: "Ventas",
+    faturamento_kpi_ticket: "Ticket Promedio",
+    faturamento_report_titulo: "INFORME DE ANÁLISIS (FACTURACIÓN TRIMESTRAL)",
+    menu_contato: "Contacto",
+    contato_texto:
+      "Conéctate con nuestro equipo de forma rápida, exclusiva y profesional.",
+    contato_botao: "Hablar por WhatsApp",
+    hero_title: "El Futuro de lo Digital es Ahora",
+    faturamento_label: "Facturación (USD millones)",
+    general_sales_label: "Ventas Generales",
+    quarter_labels: ["T1", "T2", "T3", "T4", "Extra"],
+    month_labels: ["Mes 1", "Mes 2", "Mes 3"],
+    day_prefix: "Día",
   },
 };
+
+let currentLang = "es";
 
 // Função para mudar idioma
 function setLanguage(lang) {

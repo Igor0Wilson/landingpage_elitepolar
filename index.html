@@ -403,26 +403,46 @@
         </div>
 
         <!-- Conteúdo Quem Somos -->
-        <div class="text-left">
+        <div
+          class="relative text-left bg-gradient-to-br from-white via-gray-50 to-gray-100 p-12 rounded-3xl shadow-2xl border border-gray-200"
+        >
+          <!-- Detalhes decorativos -->
+          <div
+            class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-tr from-black/10 to-gray-400/20 rounded-full blur-3xl"
+          ></div>
+          <div
+            class="absolute -bottom-12 -right-12 w-60 h-60 bg-gradient-to-bl from-gray-900/10 to-gray-600/20 rounded-full blur-3xl"
+          ></div>
+
+          <!-- Título -->
           <h2
-            class="text-7xl font-extrabold mb-10 leading-tight text-gray-900"
+            class="relative text-5xl md:text-7xl font-extrabold mb-12 leading-tight text-gray-900 tracking-tight"
             data-i18n="sobre_titulo"
           >
-            Quem <span class="text-white bg-black px-3 rounded">Somos</span>
+            Quem
+            <span class="text-white bg-black px-5 py-2 rounded-lg shadow-lg"
+              >Somos</span
+            >
           </h2>
+
+          <!-- Missão -->
           <p
-            class="text-2xl text-gray-700 mb-8 leading-relaxed"
+            class="relative text-2xl text-gray-700 mb-10 leading-relaxed border-l-4 border-black pl-6"
             data-i18n="sobre_missao"
           >
-            <strong class="text-black">Missão:</strong> Construir negócios
-            digitais de alta performance, transformando atenção em lucro real
-            com estratégias de marketing agressivas, automação inteligente e
-            tecnologia de conversão. Acreditamos que cada oportunidade deve ser
-            explorada ao máximo, elevando empresas a patamares de excelência
-            global.
+            <span class="bg-black text-white px-3 py-1 rounded-lg shadow-lg"
+              >Missão:</span
+            >
+            Construir negócios digitais de alta performance, transformando
+            atenção em lucro real com estratégias de marketing agressivas,
+            automação inteligente e tecnologia de conversão. Acreditamos que
+            cada oportunidade deve ser explorada ao máximo, elevando empresas a
+            patamares de excelência global.
           </p>
+
+          <!-- Visão -->
           <p
-            class="text-2xl text-gray-700 mb-8 leading-relaxed"
+            class="relative text-2xl text-gray-700 mb-10 leading-relaxed border-l-4 border-black pl-6"
             data-i18n="sobre_visao"
           >
             <strong class="text-black">Visão:</strong> Ser a referência mundial
@@ -431,8 +451,10 @@
             digitais sustentáveis, capazes de crescer exponencialmente e se
             adaptar às constantes mudanças do cenário econômico global.
           </p>
+
+          <!-- Final -->
           <p
-            class="text-2xl text-gray-700 leading-relaxed"
+            class="relative text-2xl text-gray-700 leading-relaxed italic"
             data-i18n="sobre_texto_final"
           >
             A <strong class="text-black">Elite Polar</strong> não é apenas uma
@@ -447,11 +469,6 @@
       <div class="mt-28 max-w-6xl mx-auto px-6">
         <!-- Título com dinheiro grande em destaque -->
         <div class="flex flex-col items-center justify-center mb-20 relative">
-          <img
-            src="assets/moedas.jpg"
-            alt="Dinheiro"
-            class="w-52 h-52 rounded-full object-contain mb-6 drop-shadow-2xl"
-          />
           <h2
             class="text-6xl font-extrabold text-center text-gray-900 tracking-wide uppercase"
             data-i18n="valores_titulo"
@@ -530,34 +547,111 @@
       </div>
     </section>
 
-    <section id="faturamento" class="py-24 bg-white">
-      <div class="max-w-6xl mx-auto px-6 text-center">
-        <!-- Ícone de Dinheiro -->
-        <div class="flex justify-center mb-8">
+    <section id="faturamento" class="py-16 sm:py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <!-- Ícone -->
+        <div class="flex justify-center mb-6 sm:mb-8">
           <div
-            class="w-24 h-24 flex items-center justify-center bg-black text-white rounded-full shadow-xl"
+            class="w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center bg-black text-white rounded-full shadow-xl"
           >
-            <i data-lucide="dollar-sign" class="w-10 h-10"></i>
+            <i data-lucide="bar-chart-3" class="w-8 h-8 sm:w-10 sm:h-10"></i>
           </div>
         </div>
 
-        <!-- Texto Principal -->
+        <!-- Título -->
         <h2
-          class="text-5xl font-extrabold text-gray-900 mb-4"
+          class="text-2xl sm:text-4xl font-extrabold text-gray-900 mb-4"
           data-i18n="faturamento_titulo"
-        ></h2>
+        >
+          GENERAL SALES (27 DAYS PERIOD)
+        </h2>
 
-        <p class="text-2xl text-gray-600 mb-12">
-          <span data-i18n="faturamento_texto_pre">Geramos </span>
-          <span id="contador" class="font-bold text-black">0</span>
-          <span data-i18n="faturamento_texto_pos">
-            no último trimestre para nossos parceiros</span
+        <!-- Texto -->
+        <p
+          class="text-base sm:text-xl text-gray-600 mb-6"
+          data-i18n="faturamento_texto"
+        >
+          Faturamento médio do nosso ecossistema atual em saldo BRL<br />
+          <span
+            class="text-xs sm:text-sm text-gray-500"
+            data-i18n="faturamento_legenda"
           >
+            (totalizado por 5 influencers que somados são 3kk followers)
+          </span>
         </p>
 
-        <!-- Gráfico -->
-        <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-200">
-          <canvas id="faturamentoChart" class="w-full h-96"></canvas>
+        <!-- KPIs -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-12">
+          <!-- KPI Volume -->
+          <div class="p-4 sm:p-6 bg-gray-100 rounded-xl shadow">
+            <h3
+              class="text-base sm:text-lg font-bold text-gray-800"
+              data-i18n="faturamento_kpi_volume"
+            >
+              Volume
+            </h3>
+            <p
+              class="text-xl sm:text-2xl font-extrabold text-green-600"
+              data-value="1753695.24"
+              data-format="currency"
+            ></p>
+          </div>
+
+          <!-- KPI Sales -->
+          <div class="p-4 sm:p-6 bg-gray-100 rounded-xl shadow">
+            <h3
+              class="text-base sm:text-lg font-bold text-gray-800"
+              data-i18n="faturamento_kpi_sales"
+            >
+              Sales
+            </h3>
+            <p
+              class="text-xl sm:text-2xl font-extrabold text-blue-600"
+              data-value="58476"
+              data-format="number"
+            ></p>
+          </div>
+
+          <!-- KPI Ticket -->
+          <div class="p-4 sm:p-6 bg-gray-100 rounded-xl shadow">
+            <h3
+              class="text-base sm:text-lg font-bold text-gray-800"
+              data-i18n="faturamento_kpi_ticket"
+            >
+              Ticket
+            </h3>
+            <p
+              class="text-xl sm:text-2xl font-extrabold text-purple-600"
+              data-value="29.99"
+              data-format="currency"
+            ></p>
+          </div>
+        </div>
+
+        <!-- Gráfico 27 dias -->
+        <div
+          class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border border-gray-200 mb-12 sm:mb-16"
+        >
+          <canvas id="generalSalesChart" class="w-full h-64 sm:h-96"></canvas>
+        </div>
+
+        <!-- Report trimestral -->
+        <h2
+          class="text-xl sm:text-3xl font-extrabold text-gray-900 mb-4"
+          data-i18n="faturamento_report_titulo"
+        >
+          REPORT DE ANÁLISES (FATURAMENTO TRIMESTRAL)
+        </h2>
+        <div
+          class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border border-gray-200"
+        >
+          <canvas
+            id="quarterlyChart"
+            class="w-full h-64 sm:h-80 md:h-96"
+          ></canvas>
+          <p class="mt-4 sm:mt-6 text-lg sm:text-2xl font-bold text-gray-800">
+            USD 1.235.500
+          </p>
         </div>
       </div>
     </section>
@@ -573,74 +667,106 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
           <!-- Card 1 -->
           <div
-            class="bg-white border border-gray-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform"
+            class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 rounded-3xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] transition-transform transform hover:-translate-y-2 hover:scale-[1.02] border border-gray-700 min-h-[450px] flex flex-col justify-between"
           >
-            <div
-              class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-black text-white shadow-lg"
-            >
-              <i data-lucide="trending-up" class="w-10 h-10"></i>
+            <div>
+              <div
+                class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-tr from-green-500 to-emerald-700 text-white shadow-inner shadow-black"
+              >
+                <i data-lucide="trending-up" class="w-10 h-10"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-wide"
+                data-i18n="servicos_card1_titulo"
+              >
+                Estratégias de Performance
+              </h3>
+              <p
+                class="text-gray-200 font-medium leading-relaxed"
+                data-i18n="servicos_card1_texto"
+              >
+                Escalamos negócios digitais com foco em resultados reais. Cada
+                clique é tratado como uma oportunidade de crescimento,
+                transformando investimentos em lucro sustentável. Nosso time
+                aplica inteligência de mercado para garantir consistência e
+                evolução em todas as etapas do funil.
+              </p>
             </div>
-            <h3
-              class="text-2xl font-bold text-gray-900 mb-4"
-              data-i18n="servicos_card1_titulo"
-            >
-              Estratégias de Performance
-            </h3>
-            <p class="text-gray-600" data-i18n="servicos_card1_texto">
-              Escalamos negócios digitais com foco em resultados reais,
-              transformando cada clique em lucro.
-            </p>
+            <div class="mt-6 text-green-400 font-semibold text-sm uppercase">
+              Resultados Mensuráveis
+            </div>
           </div>
 
           <!-- Card 2 -->
           <div
-            class="bg-white border border-gray-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform"
+            class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 rounded-3xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] transition-transform transform hover:-translate-y-2 hover:scale-[1.02] border border-gray-700 min-h-[450px] flex flex-col justify-between"
           >
-            <div
-              class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-black text-white shadow-lg"
-            >
-              <i data-lucide="cpu" class="w-10 h-10"></i>
+            <div>
+              <div
+                class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-700 text-white shadow-inner shadow-black"
+              >
+                <i data-lucide="cpu" class="w-10 h-10"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-wide"
+                data-i18n="servicos_card2_titulo"
+              >
+                Tecnologia de Conversão
+              </h3>
+              <p
+                class="text-gray-200 font-medium leading-relaxed"
+                data-i18n="servicos_card2_texto"
+              >
+                Da automação inteligente à análise precisa de dados, oferecemos
+                tecnologia que aumenta sua taxa de conversão em cada detalhe da
+                jornada do cliente. Combinamos inovação, eficiência e
+                confiabilidade para transformar processos em experiências
+                fluidas e vendas em escala.
+              </p>
             </div>
-            <h3
-              class="text-2xl font-bold text-gray-900 mb-4"
-              data-i18n="servicos_card2_titulo"
-            >
-              Tecnologia de Conversão
-            </h3>
-            <p class="text-gray-600" data-i18n="servicos_card2_texto">
-              Automação inteligente e análise de dados que maximizam cada venda
-              com precisão executiva.
-            </p>
+            <div class="mt-6 text-blue-400 font-semibold text-sm uppercase">
+              Inovação & Eficiência
+            </div>
           </div>
 
           <!-- Card 3 -->
           <div
-            class="bg-white border border-gray-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition transform"
+            class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 rounded-3xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] transition-transform transform hover:-translate-y-2 hover:scale-[1.02] border border-gray-700 min-h-[450px] flex flex-col justify-between"
           >
-            <div
-              class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-black text-white shadow-lg"
-            >
-              <i data-lucide="globe-2" class="w-10 h-10"></i>
+            <div>
+              <div
+                class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-tr from-purple-500 to-pink-600 text-white shadow-inner shadow-black"
+              >
+                <i data-lucide="globe-2" class="w-10 h-10"></i>
+              </div>
+              <h3
+                class="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-wide"
+                data-i18n="servicos_card3_titulo"
+              >
+                Execução Global
+              </h3>
+              <p
+                class="text-gray-200 font-medium leading-relaxed"
+                data-i18n="servicos_card3_texto"
+              >
+                Atuamos em múltiplos mercados, adaptando estratégias a cada
+                cultura e realidade local. Nosso foco é proporcionar impacto
+                global sem perder a personalização regional, conectando sua
+                marca com clientes em qualquer parte do mundo.
+              </p>
             </div>
-            <h3
-              class="text-2xl font-bold text-gray-900 mb-4"
-              data-i18n="servicos_card3_titulo"
-            >
-              Execução Global
-            </h3>
-            <p class="text-gray-600" data-i18n="servicos_card3_texto">
-              Presença em múltiplos mercados com soluções de alto impacto para
-              empresas de elite.
-            </p>
+            <div class="mt-6 text-purple-400 font-semibold text-sm uppercase">
+              Alcance Mundial
+            </div>
           </div>
         </div>
 
         <!-- Card de destaque responsivo -->
         <div
-          class="bg-white border border-gray-200 p-10 sm:p-14 md:p-16 rounded-3xl shadow-2xl hover:shadow-4xl hover:-translate-y-4 transition transform mt-32 max-w-6xl mx-auto text-center"
+          class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 sm:p-14 md:p-16 rounded-3xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] hover:-translate-y-4 transition transform mt-32 max-w-6xl mx-auto text-center border border-gray-700"
         >
           <div
-            class="flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-6 sm:mb-8 md:mb-10 rounded-full bg-black text-white shadow-2xl"
+            class="flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-6 sm:mb-8 md:mb-10 rounded-full bg-gradient-to-tr from-yellow-500 to-orange-600 text-white shadow-inner shadow-black"
           >
             <i
               data-lucide="megaphone"
@@ -648,13 +774,24 @@
             ></i>
           </div>
           <h3
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 md:mb-8 px-4 sm:px-6"
+            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 md:mb-8 px-4 sm:px-6 text-white"
             data-i18n="servicos_card4_titulo"
-          ></h3>
+          >
+            Comunicação que Conecta
+          </h3>
           <p
-            class="text-lg sm:text-xl md:text-2xl max-w-full md:max-w-4xl mx-auto leading-relaxed px-4 sm:px-6"
+            class="text-lg sm:text-xl md:text-2xl max-w-full md:max-w-4xl mx-auto leading-relaxed px-4 sm:px-6 text-gray-200"
             data-i18n="servicos_card4_texto"
-          ></p>
+          >
+            Transformamos ideias em campanhas inesquecíveis. Com criatividade
+            estratégica e tecnologia de ponta, entregamos narrativas que
+            inspiram, engajam e convertem. Do branding ao marketing de
+            performance, damos voz à sua marca para impactar pessoas e gerar
+            resultados duradouros.
+          </p>
+          <div class="mt-6 text-yellow-400 font-semibold text-sm uppercase">
+            Conexão & Impacto
+          </div>
         </div>
       </div>
     </section>
@@ -774,13 +911,15 @@
         >
           Entre em Contato
         </h2>
+
+        <!-- Texto -->
         <p class="text-xl text-gray-600 mb-12" data-i18n="contato_texto">
           Conecte-se com nossa equipe de forma rápida, exclusiva e profissional.
         </p>
 
         <!-- Botão WhatsApp -->
         <a
-          href="https://wa.me/5500000000000"
+          href="https://wa.me/447441913104"
           target="_blank"
           class="inline-flex items-center gap-4 bg-green-500 text-white font-bold text-2xl px-12 py-6 rounded-full shadow-2xl hover:scale-110 hover:shadow-green-400/70 transition transform duration-300"
           data-i18n="contato_botao"
@@ -798,7 +937,7 @@
       >
         <!-- Texto principal -->
         <p
-          class="text-sm md:text-base tracking-wide opacity-90"
+          class="text-sm md:text-base tracking-wide opacity-90 text-center lg:text-left"
           data-i18n="footer_text"
         >
           &copy; 2025 <span class="font-bold text-white">Elite Polar</span> —
@@ -807,20 +946,36 @@
         </p>
 
         <!-- Desenvolvido por -->
-        <div class="flex items-center gap-3">
-          <span class="text-sm opacity-80" data-i18n="footer_dev">
+        <a
+          href="https://wa.me/5514996743858"
+          target="_blank"
+          class="flex items-center gap-4 group transition-transform duration-300 hover:scale-105"
+          data-i18n="footer_dev_link"
+        >
+          <span
+            class="text-sm opacity-80 group-hover:text-green-400 transition-colors duration-300"
+            data-i18n="footer_dev"
+          >
             Desenvolvido por
           </span>
-          <img
-            src="./assets/logo-org.png"
-            alt="WSS Solution Logo"
-            class="h-9 w-9 rounded-full object-cover bg-white p-1 shadow-md"
-          />
-        </div>
+          <div
+            class="relative w-14 h-14 rounded-full overflow-hidden shadow-lg border border-white/10 group-hover:border-green-400/40 transition-all duration-300"
+          >
+            <img
+              src="./assets/logo-org.png"
+              alt="Logo do desenvolvedor"
+              class="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110"
+            />
+            <!-- Efeito de brilho suave -->
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-green-400/0 via-green-400/15 to-green-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"
+            ></div>
+          </div>
+        </a>
       </div>
 
       <!-- Fundo futurista -->
-      <div class="absolute inset-0">
+      <div class="absolute inset-0 pointer-events-none">
         <div
           class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"
         ></div>
@@ -829,6 +984,56 @@
         ></div>
       </div>
     </footer>
+
+    <div
+      id="modalIdioma"
+      class="fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-8 w-[90%] max-w-md text-center"
+      >
+        <h2 class="text-2xl font-bold mb-6 text-gray-900">
+          Selecione seu idioma
+        </h2>
+
+        <div class="flex items-center justify-center gap-6">
+          <button
+            data-lang="pt"
+            class="w-16 h-16 rounded-full overflow-hidden shadow-lg hover:scale-110 transition"
+          >
+            <img
+              src="https://flagcdn.com/w80/br.png"
+              alt="Português"
+              class="w-full h-full object-cover"
+            />
+          </button>
+          <button
+            data-lang="es"
+            class="w-16 h-16 rounded-full overflow-hidden shadow-lg hover:scale-110 transition"
+          >
+            <img
+              src="https://flagcdn.com/w80/es.png"
+              alt="Español"
+              class="w-full h-full object-cover"
+            />
+          </button>
+          <button
+            data-lang="en"
+            class="w-16 h-16 rounded-full overflow-hidden shadow-lg hover:scale-110 transition"
+          >
+            <img
+              src="https://flagcdn.com/w80/us.png"
+              alt="English"
+              class="w-full h-full object-cover"
+            />
+          </button>
+        </div>
+
+        <p class="mt-6 text-sm text-gray-500">
+          Você poderá trocar depois no menu.
+        </p>
+      </div>
+    </div>
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
@@ -838,61 +1043,196 @@
     <script>
       lucide.createIcons();
     </script>
+    <!-- Dependências -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <script>
-      // Contador animado
+      // Ativar ícones Lucide
+      lucide.createIcons();
+
+      // ================================
+      // CONTADOR ANIMADO
+      // ================================
       const contadorEl = document.getElementById("contador");
-      let count = 0;
-      const target = 2000000000; // 2 bilhões
-      const duration = 2000; // 2 segundos
-      const step = target / (duration / 16); // 60fps
+      if (contadorEl) {
+        let count = 0;
+        const target = 2000000000; // 2 bilhões
+        const duration = 2000; // 2 segundos
+        const step = target / (duration / 16); // ~60fps
 
-      const animate = () => {
-        count += step;
-        if (count >= target) count = target;
-        contadorEl.innerText = "$" + Math.floor(count).toLocaleString();
-        if (count < target) requestAnimationFrame(animate);
-      };
-      animate();
+        const animate = () => {
+          count += step;
+          if (count >= target) count = target;
+          contadorEl.innerText = "$" + Math.floor(count).toLocaleString();
+          if (count < target) requestAnimationFrame(animate);
+        };
+        animate();
+      }
 
-      // Gráfico
-      const ctx = document.getElementById("faturamentoChart").getContext("2d");
-      new Chart(ctx, {
-        type: "line",
-        data: {
-          labels: ["Mês 1", "Mês 2", "Mês 3"],
-          datasets: [
-            {
-              label: "Faturamento (USD milhões)",
-              data: [500, 700, 2000],
-              backgroundColor: "rgba(0,0,0,0.05)",
-              borderColor: "rgba(0,0,0,0.8)",
-              borderWidth: 3,
-              tension: 0.4,
-              fill: true,
-              pointBackgroundColor: "rgba(0,0,0,0.8)",
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                callback: function (value) {
-                  return "$" + value + "M";
+      // ================================
+      // MODAL DE IDIOMA
+      // ================================
+      const modalIdioma = document.getElementById("modalIdioma");
+
+      if (modalIdioma) {
+        window.addEventListener("load", () => {
+          if (!localStorage.getItem("lang")) {
+            modalIdioma.style.display = "flex";
+          }
+        });
+
+        // Ações dos botões
+        document.querySelectorAll("#modalIdioma button").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const lang = btn.getAttribute("data-lang");
+            localStorage.setItem("lang", lang);
+            modalIdioma.style.display = "none";
+
+            if (typeof setLanguage === "function") {
+              setLanguage(lang);
+            }
+          });
+        });
+      }
+
+      // ================================
+      // GRÁFICO FATURAMENTO (TRIMESTRAL DEMO)
+      // ================================
+      const faturamentoChart = document.getElementById("faturamentoChart");
+      if (faturamentoChart) {
+        new Chart(faturamentoChart.getContext("2d"), {
+          type: "line",
+          data: {
+            labels: ["Mês 1", "Mês 2", "Mês 3"],
+            datasets: [
+              {
+                label: "Faturamento (USD milhões)",
+                data: [500, 700, 2000],
+                backgroundColor: "rgba(0,0,0,0.05)",
+                borderColor: "rgba(0,0,0,0.8)",
+                borderWidth: 3,
+                tension: 0.4,
+                fill: true,
+                pointBackgroundColor: "rgba(0,0,0,0.8)",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  // Mostra USD no tooltip
+                  label: (ctx) =>
+                    `USD ${ctx.parsed.y.toLocaleString("en-US")}M`,
                 },
-                color: "#000",
               },
             },
-            x: {
-              ticks: { color: "#000" },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  // Mostra USD no eixo Y
+                  callback: (value) => `USD ${value.toLocaleString("en-US")}M`,
+                  color: "#000",
+                },
+              },
+              x: { ticks: { color: "#000" } },
             },
           },
-        },
-      });
+        });
+      }
+
+      // ================================
+      // GRÁFICO GENERAL SALES (27 DIAS)
+      // ================================
+      const generalSalesChart = document.getElementById("generalSalesChart");
+      if (generalSalesChart) {
+        new Chart(generalSalesChart.getContext("2d"), {
+          type: "line",
+          data: {
+            labels: Array.from({ length: 27 }, (_, i) => `Day ${i + 1}`),
+            datasets: [
+              {
+                label: "General Sales (USD)",
+                data: [
+                  20000, 40000, 60000, 80000, 120000, 160000, 200000, 250000,
+                  300000, 400000, 500000, 600000, 700000, 800000, 900000,
+                  1000000, 1100000, 1200000, 1300000, 1400000, 1500000, 1600000,
+                  1700000, 1753695,
+                ],
+                borderColor: "#4F46E5",
+                backgroundColor: "rgba(79,70,229,0.2)",
+                tension: 0.3,
+                fill: true,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  // Exibe USD no tooltip
+                  label: (ctx) => `USD ${ctx.parsed.y.toLocaleString("en-US")}`,
+                },
+              },
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  // Exibe USD no eixo Y
+                  callback: (value) => `USD ${value.toLocaleString("en-US")}`,
+                  color: "#000",
+                },
+              },
+              x: {
+                ticks: { color: "#000" },
+              },
+            },
+          },
+        });
+      }
+
+      // ================================
+      // GRÁFICO TRIMESTRAL (DOUGHNUT)
+      // ================================
+      const quarterlyChart = document.getElementById("quarterlyChart");
+      if (quarterlyChart) {
+        new Chart(quarterlyChart.getContext("2d"), {
+          type: "doughnut",
+          data: {
+            datasets: [
+              {
+                data: [1200000, 1500000, 1000000, 800000, 867201],
+                backgroundColor: [
+                  "#6366F1",
+                  "#22C55E",
+                  "#F43F5E",
+                  "#F59E0B",
+                  "#3B82F6",
+                ],
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            cutout: "70%", // deixa o círculo menor
+            plugins: { legend: { position: "bottom" } },
+          },
+        });
+      }
     </script>
+
+    <!-- Seu JS extra -->
     <script src="js/script.js"></script>
   </body>
 </html>
