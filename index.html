@@ -5,364 +5,271 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elite Polar - Global Cold Money</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      /* Compensar header fixo */
       body {
-        padding-top: 80px; /* altura aproximada do header */
+        padding-top: 80px;
+        font-family: "Inter", sans-serif;
       }
 
-      /* Hero ajustes */
+      header {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
       .hero-section {
-        min-height: calc(100vh - 80px); /* ocupar tela sem sobrepor header */
+        min-height: calc(100vh - 80px);
+        background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+          url("assets/fundo.jpg") center/cover no-repeat;
       }
 
-      /* Animação lenta customizada */
-      @keyframes spin-slow {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      .animate-spin-slow {
-        animation: spin-slow 12s linear infinite;
+      section {
+        padding: 6rem 0;
       }
 
-      /* Flutuar ícones */
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
+      .card {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-primary {
+        background-color: #000;
+        color: #fff;
+        padding: 1rem 2.5rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #333;
+      }
+
+      .icon-circle {
+        width: 70px;
+        height: 70px;
+        background-color: #fff;
+        border: 3px solid #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+      }
+
+      .icon-circle i {
+        color: #000;
+        width: 36px;
+        height: 36px;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding-top: 70px;
+        }
+        header {
+          height: 70px;
+        }
+        .hero-section {
+          min-height: calc(100vh - 70px);
+        }
+        .hero-section h1 {
+          font-size: 2.8rem;
+        }
+        .hero-section p {
+          font-size: 1.125rem;
+        }
+        .icon-circle {
+          width: 60px;
+          height: 60px;
+        }
+        .icon-circle i {
+          width: 30px;
+          height: 30px;
+        }
       }
     </style>
   </head>
-  <body class="bg-white text-black font-sans">
+  <body class="bg-gray-50 text-gray-900 antialiased">
     <!-- Header -->
     <header
-      class="fixed top-0 left-0 w-full bg-white text-black shadow z-50 h-20 flex items-center"
+      class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 h-20 flex items-center"
     >
-      <div class="container mx-auto flex justify-between items-center px-4">
-        <!-- Logo + Nome -->
-
+      <div
+        class="container mx-auto flex justify-between items-center px-6 lg:px-8"
+      >
         <img
           src="assets/eliteicon2.png"
           alt="Elite Polar"
-          class="h-28 w-50 rounded-2xl"
+          class="h-24 md:h-32 rounded-xl"
         />
 
-        <!-- Menu Desktop -->
-        <nav class="hidden md:flex space-x-8 text-black">
+        <nav
+          class="hidden md:flex space-x-8 lg:space-x-12 text-gray-700 font-medium text-base lg:text-lg"
+        >
           <a
             href="#sobre"
-            class="hover:text-gray-600 flex items-center space-x-1"
+            class="hover:text-black transition"
+            data-i18n="menu_sobre"
+            >Sobre</a
           >
-            <i data-lucide="info"></i>
-            <span data-i18n="menu_sobre">Sobre</span>
-          </a>
           <a
             href="#servicos"
-            class="hover:text-gray-600 flex items-center space-x-1"
+            class="hover:text-black transition"
+            data-i18n="menu_servicos"
+            >Serviços</a
           >
-            <i data-lucide="briefcase"></i>
-            <span data-i18n="menu_servicos">Serviços</span>
-          </a>
           <a
             href="#clientes"
-            class="hover:text-gray-600 flex items-center space-x-1"
+            class="hover:text-black transition"
+            data-i18n="menu_clientes"
+            >Clientes</a
           >
-            <i data-lucide="users"></i>
-            <span data-i18n="menu_clientes">Clientes</span>
-          </a>
           <a
             href="#contato"
-            class="hover:text-gray-600 flex items-center space-x-1"
+            class="hover:text-black transition"
+            data-i18n="menu_contato"
+            >Contato</a
           >
-            <i data-lucide="mail"></i>
-            <span data-i18n="menu_contato">Contato</span>
-          </a>
         </nav>
 
-        <!-- Botões Idioma (desktop + mobile) -->
-        <div class="flex items-center gap-2 mr-2">
-          <button data-lang="pt" class="w-6 h-6" title="Português">
+        <div class="flex items-center gap-2 md:gap-3">
+          <button
+            data-lang="pt"
+            class="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden hover:ring-4 hover:ring-gray-300 transition"
+          >
             <img
               src="https://flagcdn.com/w40/br.png"
               alt="Português"
-              class="rounded shadow w-full h-full object-cover"
+              class="w-full h-full object-cover"
             />
           </button>
-          <button data-lang="es" class="w-6 h-6" title="Español">
+          <button
+            data-lang="es"
+            class="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden hover:ring-4 hover:ring-gray-300 transition"
+          >
             <img
               src="https://flagcdn.com/w40/es.png"
               alt="Español"
-              class="rounded shadow w-full h-full object-cover"
+              class="w-full h-full object-cover"
             />
           </button>
-          <button data-lang="en" class="w-6 h-6" title="English">
+          <button
+            data-lang="en"
+            class="w-8 h-8 md:w-9 md:h-9 rounded-full overflow-hidden hover:ring-4 hover:ring-gray-300 transition"
+          >
             <img
               src="https://flagcdn.com/w40/us.png"
               alt="English"
-              class="rounded shadow w-full h-full object-cover"
+              class="w-full h-full object-cover"
             />
           </button>
         </div>
 
-        <!-- Botão Mobile -->
-        <button class="md:hidden text-2xl text-black ml-4" id="menu-btn">
+        <button
+          class="md:hidden text-3xl text-gray-700 focus:outline-none"
+          id="menu-btn"
+        >
           ☰
         </button>
       </div>
 
-      <!-- Menu Mobile -->
       <div
         id="mobile-menu"
-        class="hidden flex-col bg-white text-black md:hidden shadow w-full"
+        class="hidden md:hidden absolute top-20 left-0 w-full bg-white shadow-xl z-40"
       >
-        <a
-          href="#sobre"
-          class="p-4 border-b border-gray-300 flex items-center space-x-2"
-        >
-          <i data-lucide="info"></i>
-          <span data-i18n="menu_sobre">Sobre</span>
-        </a>
-        <a
-          href="#valores"
-          class="p-4 border-b border-gray-300 flex items-center space-x-2"
-        >
-          <i data-lucide="star"></i>
-          <span data-i18n="menu_valores">Valores</span>
-        </a>
-        <a
-          href="#servicos"
-          class="p-4 border-b border-gray-300 flex items-center space-x-2"
-        >
-          <i data-lucide="briefcase"></i>
-          <span data-i18n="menu_servicos">Serviços</span>
-        </a>
-        <a
-          href="#clientes"
-          class="p-4 border-b border-gray-300 flex items-center space-x-2"
-        >
-          <i data-lucide="users"></i>
-          <span data-i18n="menu_clientes">Clientes</span>
-        </a>
-        <a href="#contato" class="p-4 flex items-center space-x-2">
-          <i data-lucide="mail"></i>
-          <span data-i18n="menu_contato">Contato</span>
-        </a>
+        <nav class="flex flex-col">
+          <a
+            href="#sobre"
+            class="py-5 px-8 text-lg hover:bg-gray-100 transition"
+            data-i18n="menu_sobre"
+            >Sobre</a
+          >
+          <a
+            href="#servicos"
+            class="py-5 px-8 text-lg hover:bg-gray-100 transition"
+            data-i18n="menu_servicos"
+            >Serviços</a
+          >
+          <a
+            href="#clientes"
+            class="py-5 px-8 text-lg hover:bg-gray-100 transition"
+            data-i18n="menu_clientes"
+            >Clientes</a
+          >
+          <a
+            href="#contato"
+            class="py-5 px-8 text-lg hover:bg-gray-100 transition"
+            data-i18n="menu_contato"
+            >Contato</a
+          >
+        </nav>
       </div>
     </header>
 
     <!-- Hero -->
-    <section
-      class="hero-section flex items-center justify-center relative overflow-hidden bg-white"
-    >
-      <!-- Fundo -->
-      <img
-        src="assets/fundolp.jpg"
-        alt="Fundo Elite Polar"
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-black/70"
-      ></div>
-
-      <!-- Ícones decorativos -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="absolute top-10 left-6 w-10 h-10 text-green-400 opacity-70 animate-bounce"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        stroke-width="1.5"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12 8c-1.657 0-3 .843-3 1.875S10.343 11.75 12 11.75s3 .843 3 1.875S13.657 15.5 12 15.5m0-7.5V5.25m0 10v3M21 12c0 4.971-4.029 9-9 9s-9-4.029-9-9 4.029-9 9-9 9 4.029 9 9z"
-        />
-      </svg>
-
-      <!-- Conteúdo -->
-      <div
-        class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-      >
+    <section class="hero-section flex items-center justify-center">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
         <img
           src="assets/logoelitepolar1.png"
           alt="Elite Polar"
-          class="h-40 sm:h-48 md:h-56 mx-auto mb-8 drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] animate-bounce"
+          class="h-32 md:h-48 lg:h-56 mx-auto mb-8 drop-shadow-2xl"
         />
-
         <h1
-          class="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-wide text-white mb-6 drop-shadow-lg leading-tight"
+          class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-lg"
           data-i18n="hero_title"
         >
-          O Futuro do
-          <span
-            class="text-gray-300 inline-flex items-center gap-3 flex-wrap justify-center"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-8 w-8 md:h-10 md:w-10"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              aria-hidden="true"
-            >
-              <path
-                d="M12 1v2M12 21v2M17 5.5A4 4 0 0 0 12 3a4 4 0 0 0-5 2.5C7 7 9 8 12 9c3 .9 5 1.9 5 5s-2 4-5 5c-3 1-5 2-5 3.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M8 7v2c0 2 4 2 4 2s4 0 4 2v2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            Digital
-          </span>
-          é Agora
+          O Futuro do Digital é Agora
         </h1>
-
         <p
-          class="text-base sm:text-lg md:text-2xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed"
+          class="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto mb-12"
           data-i18n="hero_subtitle"
         >
-          Transformamos atenção em <span class="text-gray-300">lucro</span> com
-          estratégias de performance, automação inteligente e execução global.
+          Transformamos atenção em lucro com estratégias de performance,
+          automação inteligente e execução global.
         </p>
 
-        <!-- Cards Hero -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10">
-          <!-- Card 1 -->
-          <div
-            class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
-          >
-            <div
-              class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="card bg-white/95 backdrop-blur p-6 md:p-8 rounded-2xl">
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="hero_card1_title"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8 md:h-10 md:w-10 text-green-400"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <rect x="2" y="6" width="20" height="12" rx="2" />
-                <path
-                  d="M4 9h16M4 15h8"
-                  fill="none"
-                  stroke="#fff"
-                  stroke-width="0.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <h3
-                class="text-xl md:text-2xl font-bold text-white"
-                data-i18n="hero_card1_title"
-              >
-                Performance
-              </h3>
-            </div>
-            <p class="text-sm md:text-base text-gray-300">
+              Performance
+            </h3>
+            <p class="text-gray-700" data-i18n="hero_card1_desc">
               Estratégias agressivas que transformam cada clique em resultado
               real.
             </p>
           </div>
-
-          <!-- Card 2 -->
-          <div
-            class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
-          >
-            <div
-              class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+          <div class="card bg-white/95 backdrop-blur p-6 md:p-8 rounded-2xl">
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="hero_card2_title"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8 md:h-10 md:w-10 text-yellow-400"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <ellipse cx="12" cy="6" rx="8" ry="3" />
-                <path
-                  d="M4 6v6c0 1.657 3.582 3 8 3s8-1.343 8-3V6"
-                  fill="currentColor"
-                />
-                <path
-                  d="M4 12v6c0 1.657 3.582 3 8 3s8-1.343 8-3v-6"
-                  fill="currentColor"
-                  opacity="0.95"
-                />
-              </svg>
-              <h3
-                class="text-xl md:text-2xl font-bold text-white"
-                data-i18n="hero_card2_title"
-              >
-                Tecnologia
-              </h3>
-            </div>
-            <p class="text-sm md:text-base text-gray-300">
+              Tecnologia
+            </h3>
+            <p class="text-gray-700" data-i18n="hero_card2_desc">
               Automação inteligente e dados precisos para decisões certeiras.
             </p>
           </div>
-
-          <!-- Card 3 -->
-          <div
-            class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl hover:scale-105 transition transform"
-          >
-            <div
-              class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+          <div class="card bg-white/95 backdrop-blur p-6 md:p-8 rounded-2xl">
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="hero_card3_title"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8 md:h-10 md:w-10 text-indigo-400"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                aria-hidden="true"
-              >
-                <rect
-                  x="2"
-                  y="6"
-                  width="20"
-                  height="12"
-                  rx="2"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M16 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M2 10h20"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <h3
-                class="text-xl md:text-2xl font-bold text-white"
-                data-i18n="hero_card3_title"
-              >
-                Execução Global
-              </h3>
-            </div>
-            <p class="text-sm md:text-base text-gray-300">
+              Execução Global
+            </h3>
+            <p class="text-gray-700" data-i18n="hero_card3_desc">
               Presença em múltiplos mercados com impacto e sofisticação.
             </p>
           </div>
@@ -370,869 +277,811 @@
 
         <a
           href="#sobre"
-          class="px-8 py-3 md:px-10 md:py-4 bg-gray-300 text-black rounded-lg font-semibold text-lg shadow-lg hover:shadow-2xl transition transform hover:scale-110"
+          class="btn-primary inline-block text-base md:text-lg"
           data-i18n="hero_cta"
+          >Saiba Mais</a
         >
-          Saiba Mais
-        </a>
       </div>
     </section>
 
-    <!-- Quem Somos + Valores -->
-    <section
-      id="sobre"
-      class="relative py-28 bg-gray-100 text-black overflow-hidden"
-    >
+    <!-- Sobre -->
+    <section id="sobre" class="bg-white">
       <div
-        class="container mx-auto px-6 lg:px-20 grid lg:grid-cols-2 gap-20 items-center"
+        class="container mx-auto px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center"
       >
-        <!-- Imagem -->
-        <div class="relative">
-          <img
-            src="assets/eliteicon3.jpg"
-            alt="Equipe Elite Polar"
-            class="rounded-2xl shadow-2xl transform hover:scale-105 transition duration-500"
-          />
-          <!-- Overlay decorativo -->
-          <div
-            class="absolute -top-6 -left-6 w-32 h-32 bg-gradient-to-br from-white to-gray-200 rounded-lg opacity-80 rotate-12"
-          ></div>
-          <div
-            class="absolute -bottom-8 -right-8 w-40 h-40 border-4 border-white rounded-full opacity-70"
-          ></div>
-        </div>
-
-        <!-- Conteúdo Quem Somos -->
-        <div
-          class="relative text-left bg-gradient-to-br from-white via-gray-50 to-gray-100 p-12 rounded-3xl shadow-2xl border border-gray-200"
-        >
-          <!-- Detalhes decorativos -->
-          <div
-            class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-tr from-black/10 to-gray-400/20 rounded-full blur-3xl"
-          ></div>
-          <div
-            class="absolute -bottom-12 -right-12 w-60 h-60 bg-gradient-to-bl from-gray-900/10 to-gray-600/20 rounded-full blur-3xl"
-          ></div>
-
-          <!-- Título -->
+        <img
+          src="assets/eliteicon3.jpg"
+          alt="Equipe Elite Polar"
+          class="rounded-2xl shadow-2xl w-full"
+        />
+        <div>
           <h2
-            class="relative text-5xl md:text-7xl font-extrabold mb-12 leading-tight text-gray-900 tracking-tight"
+            class="text-4xl md:text-5xl font-bold mb-8"
             data-i18n="sobre_titulo"
           >
-            Quem
-            <span class="text-white bg-black px-5 py-2 rounded-lg shadow-lg"
-              >Somos</span
-            >
+            Quem Somos
           </h2>
-
-          <!-- Missão -->
+          <h3
+            class="text-2xl font-semibold mb-4"
+            data-i18n="sobre_missao_titulo"
+          >
+            Missão
+          </h3>
           <p
-            class="relative text-2xl text-gray-700 mb-10 leading-relaxed border-l-4 border-black pl-6"
+            class="text-gray-600 mb-8 leading-relaxed"
             data-i18n="sobre_missao"
           >
-            <span class="bg-black text-white px-3 py-1 rounded-lg shadow-lg"
-              >Missão:</span
-            >
-            Construir negócios digitais de alta performance, transformando
-            atenção em lucro real com estratégias de marketing agressivas,
-            automação inteligente e tecnologia de conversão. Acreditamos que
-            cada oportunidade deve ser explorada ao máximo, elevando empresas a
-            patamares de excelência global.
+            Construir negócios digitais de alta performance. Nossa missão é
+            encontrar a métrica de vendas perfeita para cada produto trabalhado
+            na internet, transformando atenção em lucro real por meio de
+            estratégias agressivas de marketing, automação inteligente e
+            tecnologia de conversão.
           </p>
-
-          <!-- Visão -->
-          <p
-            class="relative text-2xl text-gray-700 mb-10 leading-relaxed border-l-4 border-black pl-6"
-            data-i18n="sobre_visao"
+          <h3
+            class="text-2xl font-semibold mb-4"
+            data-i18n="sobre_visao_titulo"
           >
-            <strong class="text-black">Visão:</strong> Ser a referência mundial
-            em otimização de processos, redefinindo o jogo das vendas digitais e
-            estando sempre à frente do mercado. Nossa visão é criar ecossistemas
-            digitais sustentáveis, capazes de crescer exponencialmente e se
-            adaptar às constantes mudanças do cenário econômico global.
-          </p>
-
-          <!-- Final -->
-          <p
-            class="relative text-2xl text-gray-700 leading-relaxed italic"
-            data-i18n="sobre_texto_final"
-          >
-            A <strong class="text-black">Elite Polar</strong> não é apenas uma
-            empresa, é um movimento estratégico que conecta inteligência de
-            dados, inovação tecnológica e execução impecável para transformar
-            negócios em verdadeiras potências digitais.
+            Visão
+          </h3>
+          <p class="text-gray-600 leading-relaxed" data-i18n="sobre_visao">
+            Ser a referência global em otimização de processos, com foco em
+            vendas de alta performance no mercado digital. Não viemos para
+            competir — viemos para redefinir o jogo.
           </p>
         </div>
       </div>
 
-      <!-- Nossos Valores -->
-      <div class="mt-28 max-w-6xl mx-auto px-6">
-        <!-- Título com dinheiro grande em destaque -->
-        <div class="flex flex-col items-center justify-center mb-20 relative">
-          <h2
-            class="text-6xl font-extrabold text-center text-gray-900 tracking-wide uppercase"
-            data-i18n="valores_titulo"
-          >
-            Nossos
-            <span class="text-white bg-black px-4 py-1 rounded-lg"
-              >Valores</span
+      <div class="container mx-auto px-6 lg:px-8 mt-24">
+        <h2
+          class="text-4xl md:text-5xl font-bold mb-16 text-center"
+          data-i18n="valores_titulo"
+        >
+          Nossos Valores
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="card bg-white p-10 md:p-12 rounded-2xl text-center">
+            <div class="icon-circle"><i data-lucide="target"></i></div>
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="valores_card1_titulo"
             >
-          </h2>
-        </div>
-
-        <!-- Cards de valores -->
-        <div class="mt-28 max-w-6xl mx-auto px-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            <!-- Card 1 -->
-            <div
-              class="relative bg-white p-10 rounded-3xl shadow-xl border border-gray-200 hover:scale-105 hover:shadow-2xl hover:border-black transition transform duration-300"
+              O cliente é missão. O sucesso dele é a nossa guerra.
+            </h3>
+            <p class="text-gray-600" data-i18n="valores_card1_texto">
+              Não trabalhamos por likes. Trabalhamos por resultados. Cada venda
+              é uma vitória da Elite.
+            </p>
+          </div>
+          <div class="card bg-white p-10 md:p-12 rounded-2xl text-center">
+            <div class="icon-circle"><i data-lucide="zap"></i></div>
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="valores_card2_titulo"
             >
-              <div
-                class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-full mb-6 shadow-lg"
-              >
-                <i data-lucide="target" class="w-10 h-10"></i>
-              </div>
-              <h3
-                class="font-bold text-3xl mb-4 text-black"
-                data-i18n="valores_card1_titulo"
-              >
-                1. O cliente é missão
-              </h3>
-              <p class="text-lg text-gray-600" data-i18n="valores_card1_texto">
-                O sucesso dele é a nossa guerra. Cada venda é uma vitória.
-              </p>
-            </div>
-
-            <!-- Card 2 -->
-            <div
-              class="relative bg-white p-10 rounded-3xl shadow-xl border border-gray-200 hover:scale-105 hover:shadow-2xl hover:border-black transition transform duration-300"
+              Velocidade é poder no universo digital.
+            </h3>
+            <p class="text-gray-600" data-i18n="valores_card2_texto">
+              Pensamos, executamos e escalamos rápido. Quem não aguenta o ritmo,
+              atrasa o time.
+            </p>
+          </div>
+          <div class="card bg-white p-10 md:p-12 rounded-2xl text-center">
+            <div class="icon-circle"><i data-lucide="trending-up"></i></div>
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="valores_card3_titulo"
             >
-              <div
-                class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-full mb-6 shadow-lg"
-              >
-                <i data-lucide="zap" class="w-10 h-10"></i>
-              </div>
-              <h3
-                class="font-bold text-3xl mb-4 text-black"
-                data-i18n="valores_card2_titulo"
-              >
-                2. Velocidade é poder
-              </h3>
-              <p class="text-lg text-gray-600" data-i18n="valores_card2_texto">
-                Pensamos, executamos e escalamos rápido. Não desaceleramos.
-              </p>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-              class="relative bg-white p-10 rounded-3xl shadow-xl border border-gray-200 hover:scale-105 hover:shadow-2xl hover:border-black transition transform duration-300"
-            >
-              <div
-                class="flex items-center justify-center w-20 h-20 bg-black text-white rounded-full mb-6 shadow-lg"
-              >
-                <i data-lucide="trending-up" class="w-10 h-10"></i>
-              </div>
-              <h3
-                class="font-bold text-3xl mb-4 text-black"
-                data-i18n="valores_card3_titulo"
-              >
-                3. Performance acima da opinião
-              </h3>
-              <p class="text-lg text-gray-600" data-i18n="valores_card3_texto">
-                Resultados importam mais do que opiniões.
-              </p>
-            </div>
+              Performance está acima da opinião.
+            </h3>
+            <p class="text-gray-600" data-i18n="valores_card3_texto">
+              O que importa é o que você entrega. Resultados se respeitam e se
+              recompensam.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="faturamento" class="py-16 sm:py-24 bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-        <!-- Ícone -->
-        <div class="flex justify-center mb-6 sm:mb-8">
-          <div
-            class="w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center bg-black text-white rounded-full shadow-xl"
-          >
-            <i data-lucide="bar-chart-3" class="w-8 h-8 sm:w-10 sm:h-10"></i>
-          </div>
-        </div>
-
-        <!-- Título -->
+    <!-- Faturamento -->
+    <section id="faturamento" class="bg-gray-50">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
         <h2
-          class="text-2xl sm:text-4xl font-extrabold text-gray-900 mb-4"
+          class="text-4xl md:text-5xl font-bold mb-8"
           data-i18n="faturamento_titulo"
         >
-          GENERAL SALES (27 DAYS PERIOD)
+          FATURAMENTO GERAL (PERÍODO DE 27 DIAS)
         </h2>
-
-        <!-- Texto -->
         <p
-          class="text-base sm:text-xl text-gray-600 mb-6"
+          class="text-lg md:text-xl text-gray-600 mb-12 max-w-4xl mx-auto"
           data-i18n="faturamento_texto"
         >
           Faturamento médio do nosso ecossistema atual em saldo BRL<br />
-          <span
-            class="text-xs sm:text-sm text-gray-500"
-            data-i18n="faturamento_legenda"
+          <span class="text-sm text-gray-500" data-i18n="faturamento_legenda"
+            >(totalizado por 5 influenciadores que somados têm 3kk
+            seguidores)</span
           >
-            (totalizado por 5 influencers que somados são 3kk followers)
-          </span>
         </p>
 
-        <!-- KPIs -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-12">
-          <!-- KPI Volume -->
-          <div class="p-4 sm:p-6 bg-gray-100 rounded-xl shadow">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+          <div class="card bg-white p-10 md:p-12 rounded-2xl">
+            <div class="icon-circle mb-6">
+              <i data-lucide="dollar-sign"></i>
+            </div>
             <h3
-              class="text-base sm:text-lg font-bold text-gray-800"
+              class="text-lg md:text-xl font-semibold mb-4"
               data-i18n="faturamento_kpi_volume"
             >
               Volume
             </h3>
-            <p
-              class="text-xl sm:text-2xl font-extrabold text-green-600"
-              data-value="1753695.24"
-              data-format="currency"
-            ></p>
+            <p class="text-3xl md:text-4xl font-bold text-green-600">
+              R$ 1.753.695,24
+            </p>
           </div>
-
-          <!-- KPI Sales -->
-          <div class="p-4 sm:p-6 bg-gray-100 rounded-xl shadow">
+          <div class="card bg-white p-10 md:p-12 rounded-2xl">
+            <div class="icon-circle mb-6">
+              <i data-lucide="shopping-cart"></i>
+            </div>
             <h3
-              class="text-base sm:text-lg font-bold text-gray-800"
+              class="text-lg md:text-xl font-semibold mb-4"
               data-i18n="faturamento_kpi_sales"
             >
-              Sales
+              Vendas
             </h3>
-            <p
-              class="text-xl sm:text-2xl font-extrabold text-blue-600"
-              data-value="58476"
-              data-format="number"
-            ></p>
+            <p class="text-3xl md:text-4xl font-bold text-blue-600">58.476</p>
           </div>
-
-          <!-- KPI Ticket -->
-          <div class="p-4 sm:p-6 bg-gray-100 rounded-xl shadow">
+          <div class="card bg-white p-10 md:p-12 rounded-2xl">
+            <div class="icon-circle mb-6"><i data-lucide="tag"></i></div>
             <h3
-              class="text-base sm:text-lg font-bold text-gray-800"
+              class="text-lg md:text-xl font-semibold mb-4"
               data-i18n="faturamento_kpi_ticket"
             >
-              Ticket
+              Ticket Médio
             </h3>
-            <p
-              class="text-xl sm:text-2xl font-extrabold text-purple-600"
-              data-value="29.99"
-              data-format="currency"
-            ></p>
+            <p class="text-3xl md:text-4xl font-bold text-purple-600">
+              R$ 29,99
+            </p>
           </div>
         </div>
 
-        <!-- Gráfico 27 dias -->
-        <div
-          class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border border-gray-200 mb-12 sm:mb-16"
-        >
-          <canvas id="generalSalesChart" class="w-full h-64 sm:h-96"></canvas>
+        <div class="card bg-white p-10 md:p-12 rounded-2xl mb-12 shadow-lg">
+          <canvas id="generalSalesChart" class="w-full h-96"></canvas>
         </div>
 
-        <!-- Report trimestral -->
         <h2
-          class="text-xl sm:text-3xl font-extrabold text-gray-900 mb-4"
+          class="text-3xl md:text-4xl font-bold mb-8"
           data-i18n="faturamento_report_titulo"
         >
-          REPORT DE ANÁLISES (FATURAMENTO TRIMESTRAL)
+          RELATÓRIO DE ANÁLISES (FATURAMENTO TRIMESTRAL)
         </h2>
-        <div
-          class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border border-gray-200"
-        >
-          <canvas
-            id="quarterlyChart"
-            class="w-full h-64 sm:h-80 md:h-96"
-          ></canvas>
-          <p class="mt-4 sm:mt-6 text-lg sm:text-2xl font-bold text-gray-800">
-            USD 1.235.500
-          </p>
+        <div class="card bg-white p-10 md:p-12 rounded-2xl shadow-lg">
+          <canvas id="quarterlyChart" class="w-full h-96"></canvas>
+          <p class="mt-8 text-3xl font-bold">USD 1.235.500</p>
         </div>
       </div>
     </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="py-24 bg-white">
-      <div class="container mx-auto text-center px-6">
-        <h2 class="text-5xl font-extrabold mb-12 text-gray-900">
-          <span data-i18n="menu_servicos">Nossos Serviços</span>
+    <!-- Serviços -->
+    <section id="servicos" class="bg-white">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2
+          class="text-4xl md:text-5xl font-bold mb-16"
+          data-i18n="menu_servicos"
+        >
+          Nossos Serviços
         </h2>
-
-        <!-- Grid de cards existentes -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <!-- Card 1 -->
-          <div
-            class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 rounded-3xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] transition-transform transform hover:-translate-y-2 hover:scale-[1.02] border border-gray-700 min-h-[450px] flex flex-col justify-between"
-          >
-            <div>
-              <div
-                class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-tr from-green-500 to-emerald-700 text-white shadow-inner shadow-black"
-              >
-                <i data-lucide="trending-up" class="w-10 h-10"></i>
-              </div>
-              <h3
-                class="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-wide"
-                data-i18n="servicos_card1_titulo"
-              >
-                Estratégias de Performance
-              </h3>
-              <p
-                class="text-gray-200 font-medium leading-relaxed"
-                data-i18n="servicos_card1_texto"
-              >
-                Escalamos negócios digitais com foco em resultados reais. Cada
-                clique é tratado como uma oportunidade de crescimento,
-                transformando investimentos em lucro sustentável. Nosso time
-                aplica inteligência de mercado para garantir consistência e
-                evolução em todas as etapas do funil.
-              </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+          <div class="card bg-white p-10 md:p-12 rounded-2xl">
+            <div class="icon-circle mb-8">
+              <i data-lucide="trending-up"></i>
             </div>
-            <div class="mt-6 text-green-400 font-semibold text-sm uppercase">
-              Resultados Mensuráveis
-            </div>
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="servicos_card1_titulo"
+            >
+              Estratégias de Performance
+            </h3>
+            <p
+              class="text-gray-600 leading-relaxed"
+              data-i18n="servicos_card1_texto"
+            >
+              Escalamos negócios digitais com foco em resultados reais. Cada
+              clique é tratado como uma oportunidade de crescimento,
+              transformando investimentos em lucro sustentável.
+            </p>
           </div>
-
-          <!-- Card 2 -->
-          <div
-            class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 rounded-3xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] transition-transform transform hover:-translate-y-2 hover:scale-[1.02] border border-gray-700 min-h-[450px] flex flex-col justify-between"
-          >
-            <div>
-              <div
-                class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-700 text-white shadow-inner shadow-black"
-              >
-                <i data-lucide="cpu" class="w-10 h-10"></i>
-              </div>
-              <h3
-                class="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-wide"
-                data-i18n="servicos_card2_titulo"
-              >
-                Tecnologia de Conversão
-              </h3>
-              <p
-                class="text-gray-200 font-medium leading-relaxed"
-                data-i18n="servicos_card2_texto"
-              >
-                Da automação inteligente à análise precisa de dados, oferecemos
-                tecnologia que aumenta sua taxa de conversão em cada detalhe da
-                jornada do cliente. Combinamos inovação, eficiência e
-                confiabilidade para transformar processos em experiências
-                fluidas e vendas em escala.
-              </p>
-            </div>
-            <div class="mt-6 text-blue-400 font-semibold text-sm uppercase">
-              Inovação & Eficiência
-            </div>
+          <div class="card bg-white p-10 md:p-12 rounded-2xl">
+            <div class="icon-circle mb-8"><i data-lucide="cpu"></i></div>
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="servicos_card2_titulo"
+            >
+              Tecnologia de Conversão
+            </h3>
+            <p
+              class="text-gray-600 leading-relaxed"
+              data-i18n="servicos_card2_texto"
+            >
+              Da automação inteligente à análise precisa de dados, oferecemos
+              tecnologia que aumenta sua taxa de conversão em cada detalhe da
+              jornada do cliente.
+            </p>
           </div>
-
-          <!-- Card 3 -->
-          <div
-            class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 rounded-3xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] transition-transform transform hover:-translate-y-2 hover:scale-[1.02] border border-gray-700 min-h-[450px] flex flex-col justify-between"
-          >
-            <div>
-              <div
-                class="flex items-center justify-center w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-tr from-purple-500 to-pink-600 text-white shadow-inner shadow-black"
-              >
-                <i data-lucide="globe-2" class="w-10 h-10"></i>
-              </div>
-              <h3
-                class="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-wide"
-                data-i18n="servicos_card3_titulo"
-              >
-                Execução Global
-              </h3>
-              <p
-                class="text-gray-200 font-medium leading-relaxed"
-                data-i18n="servicos_card3_texto"
-              >
-                Atuamos em múltiplos mercados, adaptando estratégias a cada
-                cultura e realidade local. Nosso foco é proporcionar impacto
-                global sem perder a personalização regional, conectando sua
-                marca com clientes em qualquer parte do mundo.
-              </p>
-            </div>
-            <div class="mt-6 text-purple-400 font-semibold text-sm uppercase">
-              Alcance Mundial
-            </div>
+          <div class="card bg-white p-10 md:p-12 rounded-2xl">
+            <div class="icon-circle mb-8"><i data-lucide="globe"></i></div>
+            <h3
+              class="text-xl md:text-2xl font-bold mb-4"
+              data-i18n="servicos_card3_titulo"
+            >
+              Execução Global
+            </h3>
+            <p
+              class="text-gray-600 leading-relaxed"
+              data-i18n="servicos_card3_texto"
+            >
+              Atuamos em múltiplos mercados, adaptando estratégias a cada
+              cultura e realidade local.
+            </p>
           </div>
         </div>
 
-        <!-- Card de destaque responsivo -->
         <div
-          class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black p-10 sm:p-14 md:p-16 rounded-3xl shadow-2xl hover:shadow-[0_0_30px_rgba(0,0,0,0.6)] hover:-translate-y-4 transition transform mt-32 max-w-6xl mx-auto text-center border border-gray-700"
+          class="card bg-black text-white p-12 md:p-20 rounded-3xl max-w-5xl mx-auto"
         >
           <div
-            class="flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto mb-6 sm:mb-8 md:mb-10 rounded-full bg-gradient-to-tr from-yellow-500 to-orange-600 text-white shadow-inner shadow-black"
+            class="icon-circle bg-white mb-8 md:mb-12 mx-auto w-24 h-24 md:w-32 md:h-32"
           >
             <i
               data-lucide="megaphone"
-              class="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20"
+              class="w-12 h-12 md:w-16 md:h-16 text-black"
             ></i>
           </div>
           <h3
-            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 md:mb-8 px-4 sm:px-6 text-white"
+            class="text-4xl md:text-5xl lg:text-6xl font-black mb-8"
             data-i18n="servicos_card4_titulo"
           >
             Comunicação que Conecta
           </h3>
           <p
-            class="text-lg sm:text-xl md:text-2xl max-w-full md:max-w-4xl mx-auto leading-relaxed px-4 sm:px-6 text-gray-200"
+            class="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-4xl mx-auto"
             data-i18n="servicos_card4_texto"
           >
             Transformamos ideias em campanhas inesquecíveis. Com criatividade
             estratégica e tecnologia de ponta, entregamos narrativas que
-            inspiram, engajam e convertem. Do branding ao marketing de
-            performance, damos voz à sua marca para impactar pessoas e gerar
-            resultados duradouros.
+            inspiram, engajam e convertem.
           </p>
-          <div class="mt-6 text-yellow-400 font-semibold text-sm uppercase">
-            Conexão & Impacto
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- CLIENTES -->
-    <section id="clientes" class="py-24 bg-gray-100 relative overflow-hidden">
-      <div class="container mx-auto px-6 lg:px-20">
-        <!-- Título -->
-        <h2 class="text-6xl font-extrabold text-center mb-16 text-gray-900">
-          <span data-i18n="menu_clientes">Nossos Clientes</span>
-        </h2>
-
-        <!-- Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <!-- Card 1 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition transform"
-          >
-            <div class="flex flex-col items-center text-center">
-              <img
-                src="https://i.pravatar.cc/100?img=12"
-                alt="Cliente 1"
-                class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
-              />
-              <div class="flex text-yellow-400 mb-4">★★★★★</div>
-              <p
-                class="italic text-lg text-gray-700 leading-relaxed mb-4"
-                data-i18n="clientes_card1_texto"
-              >
-                “A Elite Polar levou meu negócio a outro patamar...”
-              </p>
-              <h4
-                class="text-2xl font-semibold text-gray-900"
-                data-i18n="clientes_card1_nome"
-              >
-                Renato Carvalho
-              </h4>
-              <span class="text-gray-500" data-i18n="clientes_card1_sub">
-                Cliente Elite Polar desde 2023
-              </span>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition transform"
-          >
-            <div class="flex flex-col items-center text-center">
-              <img
-                src="https://i.pravatar.cc/100?img=32"
-                alt="Cliente 2"
-                class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
-              />
-              <div class="flex text-yellow-400 mb-4">★★★★★</div>
-              <p
-                class="italic text-lg text-gray-700 leading-relaxed mb-4"
-                data-i18n="clientes_card2_texto"
-              >
-                “Profissionais incríveis, visão de mercado e velocidade
-                absurda...”
-              </p>
-              <h4
-                class="text-2xl font-semibold text-gray-900"
-                data-i18n="clientes_card2_nome"
-              >
-                Mariana S.
-              </h4>
-              <span class="text-gray-500" data-i18n="clientes_card2_sub">
-                São Paulo - Brasil
-              </span>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:scale-105 transition transform"
-          >
-            <div class="flex flex-col items-center text-center">
-              <img
-                src="https://i.pravatar.cc/100?img=56"
-                alt="Cliente 3"
-                class="w-20 h-20 rounded-full border-4 border-gray-300 mb-4"
-              />
-              <div class="flex text-yellow-400 mb-4">★★★★★</div>
-              <p
-                class="italic text-lg text-gray-700 leading-relaxed mb-4"
-                data-i18n="clientes_card3_texto"
-              >
-                “Eles não só entregam resultados, como também criam
-                estratégias...”
-              </p>
-              <h4
-                class="text-2xl font-semibold text-gray-900"
-                data-i18n="clientes_card3_nome"
-              >
-                Lucas C.
-              </h4>
-              <span class="text-gray-500" data-i18n="clientes_card3_sub">
-                E-commerce • Tecnologia
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section
-      id="contato"
-      class="py-28 bg-white text-center relative overflow-hidden"
-    >
-      <div class="max-w-5xl mx-auto px-6 relative z-10">
-        <!-- Título -->
+    <!-- Clientes -->
+    <section id="clientes" class="bg-gray-50 py-20">
+      <div class="container mx-auto px-6 lg:px-8">
         <h2
-          class="text-5xl font-extrabold mb-8 tracking-wide uppercase text-gray-900"
+          class="text-4xl md:text-5xl font-bold mb-16 text-center"
+          data-i18n="menu_clientes"
+        >
+          Nossos Clientes
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div class="card bg-white p-12 rounded-2xl text-center">
+            <img
+              src="https://i.pravatar.cc/200?img=12"
+              alt="Cliente"
+              class="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg"
+            />
+            <div class="text-yellow-400 text-3xl mb-6">★★★★★</div>
+            <p
+              class="italic text-xl text-gray-700 mb-8"
+              data-i18n="clientes_card1_texto"
+            >
+              “A Elite Polar levou meu negócio a outro patamar...”
+            </p>
+            <h4 class="text-2xl font-bold" data-i18n="clientes_card1_nome">
+              Renato Carvalho
+            </h4>
+            <p class="text-gray-500 mt-2" data-i18n="clientes_card1_sub">
+              Cliente desde 2023
+            </p>
+          </div>
+          <div class="card bg-white p-12 rounded-2xl text-center">
+            <img
+              src="https://i.pravatar.cc/200?img=32"
+              alt="Cliente"
+              class="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg"
+            />
+            <div class="text-yellow-400 text-3xl mb-6">★★★★★</div>
+            <p
+              class="italic text-xl text-gray-700 mb-8"
+              data-i18n="clientes_card2_texto"
+            >
+              “Profissionais incríveis, visão de mercado e velocidade
+              absurda...”
+            </p>
+            <h4 class="text-2xl font-bold" data-i18n="clientes_card2_nome">
+              Mariana S.
+            </h4>
+            <p class="text-gray-500 mt-2" data-i18n="clientes_card2_sub">
+              São Paulo - Brasil
+            </p>
+          </div>
+          <div class="card bg-white p-12 rounded-2xl text-center">
+            <img
+              src="https://i.pravatar.cc/200?img=56"
+              alt="Cliente"
+              class="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg"
+            />
+            <div class="text-yellow-400 text-3xl mb-6">★★★★★</div>
+            <p
+              class="italic text-xl text-gray-700 mb-8"
+              data-i18n="clientes_card3_texto"
+            >
+              “Eles não só entregam resultados, como também criam
+              estratégias...”
+            </p>
+            <h4 class="text-2xl font-bold" data-i18n="clientes_card3_nome">
+              Lucas C.
+            </h4>
+            <p class="text-gray-500 mt-2" data-i18n="clientes_card3_sub">
+              E-commerce • Tecnologia
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="bg-white py-24">
+      <div class="container mx-auto px-6 lg:px-8 text-center">
+        <h2
+          class="text-5xl md:text-6xl font-bold mb-10"
           data-i18n="menu_contato"
         >
           Entre em Contato
         </h2>
-
-        <!-- Texto -->
-        <p class="text-xl text-gray-600 mb-12" data-i18n="contato_texto">
+        <p
+          class="text-xl md:text-2xl text-gray-600 mb-16 max-w-3xl mx-auto"
+          data-i18n="contato_texto"
+        >
           Conecte-se com nossa equipe de forma rápida, exclusiva e profissional.
         </p>
-
-        <!-- Botão WhatsApp -->
         <a
           href="https://wa.me/447441913104"
           target="_blank"
-          class="inline-flex items-center gap-4 bg-green-500 text-white font-bold text-2xl px-12 py-6 rounded-full shadow-2xl hover:scale-110 hover:shadow-green-400/70 transition transform duration-300"
-          data-i18n="contato_botao"
+          class="btn-primary inline-flex items-center gap-4 text-xl"
         >
           <i data-lucide="message-circle" class="w-10 h-10"></i>
-          Falar no WhatsApp
+          <span data-i18n="contato_botao">Falar no WhatsApp</span>
         </a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white relative overflow-hidden">
+    <footer class="bg-gray-900 text-white py-12">
       <div
-        class="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row items-center justify-between gap-6 relative z-10"
+        class="container mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center"
       >
-        <!-- Texto principal -->
-        <p
-          class="text-sm md:text-base tracking-wide opacity-90 text-center lg:text-left"
-          data-i18n="footer_text"
-        >
-          &copy; 2025 <span class="font-bold text-white">Elite Polar</span> —
-          Global Cold Money. <br class="md:hidden" />
-          Todos os direitos reservados.
+        <p class="text-center md:text-left text-base" data-i18n="footer_text">
+          © 2025 Elite Polar — Global Cold Money. Todos os direitos reservados.
         </p>
-
-        <!-- Desenvolvido por -->
         <a
           href="https://wa.me/5514996743858"
-          target="_blank"
-          class="flex items-center gap-4 group transition-transform duration-300 hover:scale-105"
-          data-i18n="footer_dev_link"
+          class="flex items-center gap-4 mt-6 md:mt-0"
         >
-          <span
-            class="text-sm opacity-80 group-hover:text-green-400 transition-colors duration-300"
-            data-i18n="footer_dev"
-          >
-            Desenvolvido por
-          </span>
-          <div
-            class="relative w-14 h-14 rounded-full overflow-hidden shadow-lg border border-white/10 group-hover:border-green-400/40 transition-all duration-300"
-          >
-            <img
-              src="./assets/logo-org.png"
-              alt="Logo do desenvolvedor"
-              class="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110"
-            />
-            <!-- Efeito de brilho suave -->
-            <div
-              class="absolute inset-0 bg-gradient-to-tr from-green-400/0 via-green-400/15 to-green-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"
-            ></div>
-          </div>
+          <span class="text-base" data-i18n="footer_dev">Desenvolvido por</span>
+          <img
+            src="assets/logo-org.png"
+            alt="Desenvolvedor"
+            class="w-12 h-12 rounded-full"
+          />
         </a>
-      </div>
-
-      <!-- Fundo futurista -->
-      <div class="absolute inset-0 pointer-events-none">
-        <div
-          class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl"
-        ></div>
-        <div
-          class="absolute bottom-0 right-0 w-72 h-72 bg-green-500/10 rounded-full blur-3xl"
-        ></div>
       </div>
     </footer>
 
+    <!-- Modal Idioma - Agora com bandeiras grandes e texto abaixo, exatamente como na imagem -->
+    <!-- Modal Idioma - Bandeiras aparecendo garantido (flagsapi.com - sem CORS) -->
     <div
       id="modalIdioma"
-      class="fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]"
+      class="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
     >
       <div
-        class="bg-white rounded-2xl shadow-2xl p-8 w-[90%] max-w-md text-center"
+        class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 w-[90%] max-w-md text-center"
       >
-        <h2 class="text-2xl font-bold mb-6 text-gray-900">
+        <h2
+          class="text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-gray-900"
+          data-i18n="modal_title"
+        >
           Selecione seu idioma
         </h2>
-
-        <div class="flex items-center justify-center gap-6">
+        <div class="grid grid-cols-3 gap-6 md:gap-8 max-w-sm mx-auto">
           <button
             data-lang="pt"
-            class="w-16 h-16 rounded-full overflow-hidden shadow-lg hover:scale-110 transition"
+            class="flex flex-col items-center gap-4 hover:scale-105 transition"
           >
-            <img
-              src="https://flagcdn.com/w80/br.png"
-              alt="Português"
-              class="w-full h-full object-cover"
-            />
+            <div
+              class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-2xl"
+            >
+              <img
+                src="https://flagsapi.com/BR/shiny/64.png"
+                alt="Português"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <span class="text-base md:text-lg font-medium text-gray-800"
+              >Português</span
+            >
           </button>
           <button
             data-lang="es"
-            class="w-16 h-16 rounded-full overflow-hidden shadow-lg hover:scale-110 transition"
+            class="flex flex-col items-center gap-4 hover:scale-105 transition"
           >
-            <img
-              src="https://flagcdn.com/w80/es.png"
-              alt="Español"
-              class="w-full h-full object-cover"
-            />
+            <div
+              class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-2xl"
+            >
+              <img
+                src="https://flagsapi.com/ES/shiny/64.png"
+                alt="Español"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <span class="text-base md:text-lg font-medium text-gray-800"
+              >Español</span
+            >
           </button>
           <button
             data-lang="en"
-            class="w-16 h-16 rounded-full overflow-hidden shadow-lg hover:scale-110 transition"
+            class="flex flex-col items-center gap-4 hover:scale-105 transition"
           >
-            <img
-              src="https://flagcdn.com/w80/us.png"
-              alt="English"
-              class="w-full h-full object-cover"
-            />
+            <div
+              class="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-2xl"
+            >
+              <img
+                src="https://flagsapi.com/US/shiny/64.png"
+                alt="English"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <span class="text-base md:text-lg font-medium text-gray-800"
+              >English</span
+            >
           </button>
         </div>
-
-        <p class="mt-6 text-sm text-gray-500">
-          Você poderá trocar depois no menu.
+        <p
+          class="mt-10 md:mt-12 text-base md:text-lg text-gray-600"
+          data-i18n="modal_note"
+        >
+          Você poderá trocar depois no menu superior.
         </p>
       </div>
     </div>
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
       lucide.createIcons();
-    </script>
-    <!-- Dependências -->
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <script>
-      // Ativar ícones Lucide
-      lucide.createIcons();
+      const translations = {
+        pt: {
+          menu_sobre: "Sobre",
+          menu_servicos: "Serviços",
+          menu_clientes: "Clientes",
+          menu_contato: "Contato",
+          hero_title: "O Futuro do Digital é Agora",
+          hero_subtitle:
+            "Transformamos atenção em lucro com estratégias de performance, automação inteligente e execução global.",
+          hero_card1_title: "Performance",
+          hero_card1_desc:
+            "Estratégias agressivas que transformam cada clique em resultado real.",
+          hero_card2_title: "Tecnologia",
+          hero_card2_desc:
+            "Automação inteligente e dados precisos para decisões certeiras.",
+          hero_card3_title: "Execução Global",
+          hero_card3_desc:
+            "Presença em múltiplos mercados com impacto e sofisticação.",
+          hero_cta: "Saiba Mais",
+          sobre_titulo: "Quem Somos",
+          sobre_missao_titulo: "Missão",
+          sobre_missao:
+            "Construir negócios digitais de alta performance. Nossa missão é encontrar a métrica de vendas perfeita para cada produto trabalhado na internet, transformando atenção em lucro real por meio de estratégias agressivas de marketing, automação inteligente e tecnologia de conversão.",
+          sobre_visao_titulo: "Visão",
+          sobre_visao:
+            "Ser a referência global em otimização de processos, com foco em vendas de alta performance no mercado digital. Não viemos para competir — viemos para redefinir o jogo.",
+          valores_titulo: "Nossos Valores",
+          valores_card1_titulo:
+            "O cliente é missão. O sucesso dele é a nossa guerra.",
+          valores_card1_texto:
+            "Não trabalhamos por likes. Trabalhamos por resultados. Cada venda é uma vitória da Elite.",
+          valores_card2_titulo: "Velocidade é poder no universo digital.",
+          valores_card2_texto:
+            "Pensamos, executamos e escalamos rápido. Quem não aguenta o ritmo, atrasa o time.",
+          valores_card3_titulo: "Performance está acima da opinião.",
+          valores_card3_texto:
+            "O que importa é o que você entrega. Resultados se respeitam e se recompensam.",
+          faturamento_titulo: "FATURAMENTO GERAL (PERÍODO DE 27 DIAS)",
+          faturamento_texto:
+            "Faturamento médio do nosso ecossistema atual em saldo BRL",
+          faturamento_legenda:
+            "(totalizado por 5 influenciadores que somados têm 3kk seguidores)",
+          faturamento_kpi_volume: "Volume",
+          faturamento_kpi_sales: "Vendas",
+          faturamento_kpi_ticket: "Ticket Médio",
+          faturamento_report_titulo:
+            "RELATÓRIO DE ANÁLISES (FATURAMENTO TRIMESTRAL)",
+          servicos_card1_titulo: "Estratégias de Performance",
+          servicos_card1_texto:
+            "Escalamos negócios digitais com foco em resultados reais. Cada clique é tratado como uma oportunidade de crescimento, transformando investimentos em lucro sustentável. Nosso time aplica inteligência de mercado para garantir consistência e evolução em todas as etapas do funil.",
+          servicos_card2_titulo: "Tecnologia de Conversão",
+          servicos_card2_texto:
+            "Da automação inteligente à análise precisa de dados, oferecemos tecnologia que aumenta sua taxa de conversão em cada detalhe da jornada do cliente. Combinamos inovação, eficiência e confiabilidade para transformar processos em experiências fluidas e vendas em escala.",
+          servicos_card3_titulo: "Execução Global",
+          servicos_card3_texto:
+            "Atuamos em múltiplos mercados, adaptando estratégias a cada cultura e realidade local. Nosso foco é proporcionar impacto global sem perder a personalização regional, conectando sua marca com clientes em qualquer parte do mundo.",
+          servicos_card4_titulo: "Comunicação que Conecta",
+          servicos_card4_texto:
+            "Transformamos ideias em campanhas inesquecíveis. Com criatividade estratégica e tecnologia de ponta, entregamos narrativas que inspiram, engajam e convertem. Do branding ao marketing de performance, damos voz à sua marca para impactar pessoas e gerar resultados duradouros.",
+          clientes_card1_texto:
+            "“A Elite Polar levou meu negócio a outro patamar...”",
+          clientes_card1_nome: "Renato Carvalho",
+          clientes_card1_sub: "Cliente desde 2023",
+          clientes_card2_texto:
+            "“Profissionais incríveis, visão de mercado e velocidade absurda...”",
+          clientes_card2_nome: "Mariana S.",
+          clientes_card2_sub: "São Paulo - Brasil",
+          clientes_card3_texto:
+            "“Eles não só entregam resultados, como também criam estratégias...”",
+          clientes_card3_nome: "Lucas C.",
+          clientes_card3_sub: "E-commerce • Tecnologia",
+          contato_texto:
+            "Conecte-se com nossa equipe de forma rápida, exclusiva e profissional.",
+          contato_botao: "Falar no WhatsApp",
+          footer_text:
+            "© 2025 Elite Polar — Global Cold Money. Todos os direitos reservados.",
+          footer_dev: "Desenvolvido por",
+          modal_title: "Selecione seu idioma",
+          modal_note: "Você poderá trocar depois no menu superior.",
+        },
+        en: {
+          menu_sobre: "About",
+          menu_servicos: "Services",
+          menu_clientes: "Clients",
+          menu_contato: "Contact",
+          hero_title: "The Future of Digital is Now",
+          hero_subtitle:
+            "We turn attention into profit with performance strategies, smart automation and global execution.",
+          hero_card1_title: "Performance",
+          hero_card1_desc:
+            "Aggressive strategies that turn every click into real results.",
+          hero_card2_title: "Technology",
+          hero_card2_desc:
+            "Smart automation and accurate data for precise decisions.",
+          hero_card3_title: "Global Execution",
+          hero_card3_desc:
+            "Presence in multiple markets with impact and sophistication.",
+          hero_cta: "Learn More",
+          sobre_titulo: "Who We Are",
+          sobre_missao_titulo: "Mission",
+          sobre_missao:
+            "Build high-performance digital businesses, turning attention into real profit with aggressive marketing strategies, smart automation, and conversion technology.",
+          sobre_visao_titulo: "Vision",
+          sobre_visao:
+            "To be the worldwide reference in process optimization, redefining the digital sales game and staying ahead of the market.",
+          valores_titulo: "Our Values",
+          valores_card1_titulo:
+            "The client is the mission. Their success is our war.",
+          valores_card1_texto:
+            "We don't work for likes. We work for results. Every sale is a victory for Elite.",
+          valores_card2_titulo: "Speed is power in the digital universe.",
+          valores_card2_texto:
+            "We think, execute, and scale fast. Those who can't keep up slow the team down.",
+          valores_card3_titulo: "Performance over opinion.",
+          valores_card3_texto:
+            "What matters is what you deliver. Results are respected and rewarded.",
+          faturamento_titulo: "GENERAL SALES (27 DAYS PERIOD)",
+          faturamento_texto:
+            "Average revenue of our current ecosystem in BRL balance",
+          faturamento_legenda:
+            "(totalized by 5 influencers with a combined 3M followers)",
+          faturamento_kpi_volume: "Volume",
+          faturamento_kpi_sales: "Sales",
+          faturamento_kpi_ticket: "Average Ticket",
+          faturamento_report_titulo: "ANALYSIS REPORT (QUARTERLY REVENUE)",
+          servicos_card1_titulo: "Performance Strategies",
+          servicos_card1_texto:
+            "We scale digital businesses with a focus on real results. Each click is treated as a growth opportunity, turning investments into sustainable profit.",
+          servicos_card2_titulo: "Conversion Technology",
+          servicos_card2_texto:
+            "From smart automation to precise data analysis, we provide technology that boosts your conversion rate at every step of the customer journey.",
+          servicos_card3_titulo: "Global Execution",
+          servicos_card3_texto:
+            "We operate in multiple markets, adapting strategies to each culture and local reality.",
+          servicos_card4_titulo: "Communication that Connects",
+          servicos_card4_texto:
+            "We turn ideas into unforgettable campaigns. With strategic creativity and cutting-edge technology, we deliver stories that inspire, engage, and convert.",
+          clientes_card1_texto:
+            "“Elite Polar took my business to another level...”",
+          clientes_card1_nome: "Renato Carvalho",
+          clientes_card1_sub: "Elite Polar client since 2023",
+          clientes_card2_texto:
+            "“Amazing professionals, market vision and absurd speed...”",
+          clientes_card2_nome: "Mariana S.",
+          clientes_card2_sub: "São Paulo - Brazil",
+          clientes_card3_texto:
+            "“They not only deliver results, but also create strategies...”",
+          clientes_card3_nome: "Lucas C.",
+          clientes_card3_sub: "E-commerce • Technology",
+          contato_texto:
+            "Connect with our team quickly, exclusively, and professionally.",
+          contato_botao: "Chat on WhatsApp",
+          footer_text:
+            "© 2025 Elite Polar — Global Cold Money. All rights reserved.",
+          footer_dev: "Developed by",
+          modal_title: "Select your language",
+          modal_note: "You can change it later in the top menu.",
+        },
+        es: {
+          menu_sobre: "Sobre",
+          menu_servicos: "Servicios",
+          menu_clientes: "Clientes",
+          menu_contato: "Contacto",
+          hero_title: "El Futuro de lo Digital es Ahora",
+          hero_subtitle:
+            "Transformamos la atención en ganancias con estrategias de rendimiento, automatización inteligente y ejecución global.",
+          hero_card1_title: "Rendimiento",
+          hero_card1_desc:
+            "Estrategias agresivas que convierten cada clic en resultados reales.",
+          hero_card2_title: "Tecnología",
+          hero_card2_desc:
+            "Automatización inteligente y datos precisos para decisiones seguras.",
+          hero_card3_title: "Ejecución Global",
+          hero_card3_desc:
+            "Presencia en múltiples mercados con impacto y sofisticación.",
+          hero_cta: "Saber Más",
+          sobre_titulo: "Quiénes Somos",
+          sobre_missao_titulo: "Misión",
+          sobre_missao:
+            "Construir negocios digitales de alto rendimiento. Nuestra misión es encontrar la métrica de ventas perfecta para cada producto trabajado en internet, transformando la atención en lucro real mediante estrategias agresivas de marketing, automatización inteligente y tecnología de conversión.",
+          sobre_visao_titulo: "Visión",
+          sobre_visao:
+            "Ser la referencia global en optimización de procesos, con foco en ventas de alta performance en el mercado digital.",
+          valores_titulo: "Nuestros Valores",
+          valores_card1_titulo:
+            "El cliente es la misión. Su éxito es nuestra guerra.",
+          valores_card1_texto:
+            "No trabajamos por likes. Trabajamos por resultados. Cada venta es una victoria de Elite.",
+          valores_card2_titulo: "La velocidad es poder en el universo digital.",
+          valores_card2_texto:
+            "Pensamos, ejecutamos y escalamos rápido. Quien no aguanta el ritmo, atrasa al equipo.",
+          valores_card3_titulo: "Performance sobre opinión.",
+          valores_card3_texto:
+            "Lo que importa es lo que entregas. Los resultados se respetan y se recompensam.",
+          faturamento_titulo: "VENTAS GENERALES (PERÍODO DE 27 DÍAS)",
+          faturamento_texto:
+            "Facturación media de nuestro ecosistema actual en saldo BRL",
+          faturamento_legenda:
+            "(totalizado por 5 influencers que sumados tienen 3M seguidores)",
+          faturamento_kpi_volume: "Volumen",
+          faturamento_kpi_sales: "Ventas",
+          faturamento_kpi_ticket: "Ticket Medio",
+          faturamento_report_titulo:
+            "INFORME DE ANÁLISIS (FACTURACIÓN TRIMESTRAL)",
+          servicos_card1_titulo: "Estrategias de Performance",
+          servicos_card1_texto:
+            "Escalamos negocios digitales con foco en resultados reales. Cada clic se trata como una oportunidad de crecimiento, transformando inversiones en lucro sostenible.",
+          servicos_card2_titulo: "Tecnología de Conversión",
+          servicos_card2_texto:
+            "Desde la automatización inteligente hasta el análisis preciso de datos, ofrecemos tecnología que aumenta su tasa de conversión en cada detalle del recorrido del cliente.",
+          servicos_card3_titulo: "Ejecución Global",
+          servicos_card3_texto:
+            "Actuamos en múltiples mercados, adaptando estrategias a cada cultura y realidad local.",
+          servicos_card4_titulo: "Comunicación que Conecta",
+          servicos_card4_texto:
+            "Transformamos ideas en campañas inolvidables. Con creatividad estratégica y tecnología de punta, entregamos narrativas que inspiran, enganchan y convierten.",
+          clientes_card1_texto:
+            "“Elite Polar llevó mi negocio a otro nivel...”",
+          clientes_card1_nome: "Renato Carvalho",
+          clientes_card1_sub: "Cliente Elite Polar desde 2023",
+          clientes_card2_texto:
+            "“Profesionales increíbles, visión de mercado y velocidad absurda...”",
+          clientes_card2_nome: "Mariana S.",
+          clientes_card2_sub: "São Paulo - Brasil",
+          clientes_card3_texto:
+            "“No solo entregan resultados, sino también crean estrategias...”",
+          clientes_card3_nome: "Lucas C.",
+          clientes_card3_sub: "E-commerce • Tecnología",
+          contato_texto:
+            "Conéctese con nuestro equipo de forma rápida, exclusiva y profesional.",
+          contato_botao: "Hablar en WhatsApp",
+          footer_text:
+            "© 2025 Elite Polar — Global Cold Money. Todos los derechos reservados.",
+          footer_dev: "Desarrollado por",
+          modal_title: "Seleccione su idioma",
+          modal_note: "Puede cambiarlo después en el menú superior.",
+        },
+      };
 
-      // ================================
-      // CONTADOR ANIMADO
-      // ================================
-      const contadorEl = document.getElementById("contador");
-      if (contadorEl) {
-        let count = 0;
-        const target = 2000000000; // 2 bilhões
-        const duration = 2000; // 2 segundos
-        const step = target / (duration / 16); // ~60fps
-
-        const animate = () => {
-          count += step;
-          if (count >= target) count = target;
-          contadorEl.innerText = "$" + Math.floor(count).toLocaleString();
-          if (count < target) requestAnimationFrame(animate);
-        };
-        animate();
-      }
-
-      // ================================
-      // MODAL DE IDIOMA
-      // ================================
-      const modalIdioma = document.getElementById("modalIdioma");
-
-      if (modalIdioma) {
-        window.addEventListener("load", () => {
-          if (!localStorage.getItem("lang")) {
-            modalIdioma.style.display = "flex";
+      function applyLanguage(lang) {
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
           }
         });
-
-        // Ações dos botões
-        document.querySelectorAll("#modalIdioma button").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const lang = btn.getAttribute("data-lang");
-            localStorage.setItem("lang", lang);
-            modalIdioma.style.display = "none";
-
-            if (typeof setLanguage === "function") {
-              setLanguage(lang);
-            }
-          });
-        });
       }
 
-      // ================================
-      // GRÁFICO FATURAMENTO (TRIMESTRAL DEMO)
-      // ================================
-      const faturamentoChart = document.getElementById("faturamentoChart");
-      if (faturamentoChart) {
-        new Chart(faturamentoChart.getContext("2d"), {
-          type: "line",
-          data: {
-            labels: ["Mês 1", "Mês 2", "Mês 3"],
-            datasets: [
-              {
-                label: "Faturamento (USD milhões)",
-                data: [500, 700, 2000],
-                backgroundColor: "rgba(0,0,0,0.05)",
-                borderColor: "rgba(0,0,0,0.8)",
-                borderWidth: 3,
-                tension: 0.4,
-                fill: true,
-                pointBackgroundColor: "rgba(0,0,0,0.8)",
-              },
-            ],
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  // Mostra USD no tooltip
-                  label: (ctx) =>
-                    `USD ${ctx.parsed.y.toLocaleString("en-US")}M`,
-                },
-              },
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  // Mostra USD no eixo Y
-                  callback: (value) => `USD ${value.toLocaleString("en-US")}M`,
-                  color: "#000",
-                },
-              },
-              x: { ticks: { color: "#000" } },
-            },
-          },
-        });
+      function selectLanguage(lang) {
+        applyLanguage(lang);
+        localStorage.setItem("lang", lang);
+        document.getElementById("modalIdioma").classList.add("hidden");
       }
 
-      // ================================
-      // GRÁFICO GENERAL SALES (27 DIAS)
-      // ================================
+      document.querySelectorAll("[data-lang]").forEach((btn) => {
+        btn.addEventListener("click", () => selectLanguage(btn.dataset.lang));
+      });
+
+      document.getElementById("menu-btn").addEventListener("click", () => {
+        document.getElementById("mobile-menu").classList.toggle("hidden");
+      });
+
+      // Modal abre SEMPRE ao carregar a página
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("modalIdioma").classList.remove("hidden");
+        const savedLang = localStorage.getItem("lang") || "pt";
+        applyLanguage(savedLang);
+      });
+
+      // Gráficos
       const generalSalesChart = document.getElementById("generalSalesChart");
       if (generalSalesChart) {
-        new Chart(generalSalesChart.getContext("2d"), {
+        new Chart(generalSalesChart, {
           type: "line",
           data: {
-            labels: Array.from({ length: 27 }, (_, i) => `Day ${i + 1}`),
+            labels: Array.from({ length: 27 }, (_, i) => `Dia ${i + 1}`),
             datasets: [
               {
-                label: "General Sales (USD)",
+                label: "Vendas",
                 data: [
                   20000, 40000, 60000, 80000, 120000, 160000, 200000, 250000,
                   300000, 400000, 500000, 600000, 700000, 800000, 900000,
                   1000000, 1100000, 1200000, 1300000, 1400000, 1500000, 1600000,
                   1700000, 1753695,
                 ],
-                borderColor: "#4F46E5",
-                backgroundColor: "rgba(79,70,229,0.2)",
-                tension: 0.3,
+                borderColor: "#000",
+                backgroundColor: "rgba(0,0,0,0.1)",
+                tension: 0.4,
                 fill: true,
               },
             ],
           },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  // Exibe USD no tooltip
-                  label: (ctx) => `USD ${ctx.parsed.y.toLocaleString("en-US")}`,
-                },
-              },
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  // Exibe USD no eixo Y
-                  callback: (value) => `USD ${value.toLocaleString("en-US")}`,
-                  color: "#000",
-                },
-              },
-              x: {
-                ticks: { color: "#000" },
-              },
-            },
-          },
+          options: { responsive: true, maintainAspectRatio: false },
         });
       }
 
-      // ================================
-      // GRÁFICO TRIMESTRAL (DOUGHNUT)
-      // ================================
       const quarterlyChart = document.getElementById("quarterlyChart");
       if (quarterlyChart) {
-        new Chart(quarterlyChart.getContext("2d"), {
+        new Chart(quarterlyChart, {
           type: "doughnut",
           data: {
+            labels: [
+              "1º Trimestre",
+              "2º Trimestre",
+              "3º Trimestre",
+              "4º Trimestre",
+              "Extra",
+            ],
             datasets: [
               {
                 data: [1200000, 1500000, 1000000, 800000, 867201],
-                backgroundColor: [
-                  "#6366F1",
-                  "#22C55E",
-                  "#F43F5E",
-                  "#F59E0B",
-                  "#3B82F6",
-                ],
+                backgroundColor: ["#000", "#333", "#666", "#999", "#ccc"],
               },
             ],
           },
           options: {
             responsive: true,
-            cutout: "70%", // deixa o círculo menor
+            cutout: "70%",
             plugins: { legend: { position: "bottom" } },
           },
         });
       }
     </script>
-
-    <!-- Seu JS extra -->
-    <script src="js/script.js"></script>
   </body>
 </html>
